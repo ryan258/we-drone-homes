@@ -1,0 +1,256 @@
+.hud-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid $color-border-bright;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  @include target-corners($color-green-osd);
+
+  &.disarmed {
+    .hud-video {
+      filter: grayscale(1) contrast(2) brightness(0.2);
+    }
+    .static-noise {
+      display: block;
+    }
+    .disarm-alert {
+      display: flex;
+    }
+  }
+
+  .hud-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+
+  .hud-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .static-noise {
+    display: none;
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 0);
+    background-size: 3px 3px;
+    opacity: 0.8;
+    z-index: 10;
+    animation: noiseJitter 0.1s infinite;
+  }
+
+  .disarm-alert {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba($color-danger, 0.9);
+    border: 2px solid #fff;
+    padding: 1.5rem 2.5rem;
+    z-index: 15;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 0 50px rgba($color-danger, 0.9);
+
+    h3 {
+      font-family: $font-hud;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 0.1em;
+    }
+
+    p {
+      color: #fff;
+      font-family: $font-hud;
+      font-size: 0.9rem;
+    }
+  }
+
+  // OSD Layer
+  .hud-osd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 8;
+    font-family: $font-hud;
+    font-size: 0.85rem;
+    color: $color-green-osd;
+
+    @include respond-to("mobile") {
+      padding: 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    .osd-top, .osd-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .osd-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .crosshair {
+        width: 40px;
+        height: 40px;
+        position: relative;
+
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          background: $color-green-osd;
+        }
+
+        &::before {
+          top: 50%; left: 0; width: 100%; height: 1px; transform: translateY(-50%);
+        }
+
+        &::after {
+          top: 0; left: 50%; width: 1px; height: 100%; transform: translateX(-50%);
+        }
+
+        .center-dot {
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 4px; height: 4px;
+          border-radius: 50%;
+          background: $color-green-osd;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .artificial-horizon-bar {
+        width: 120px;
+        height: 2px;
+        background: rgba($color-hud-cyan, 0.8);
+        margin-top: 10px;
+        transition: transform 0.05s linear;
+      }
+    }
+
+    .telemetry-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      &.telemetry-right {
+        text-align: right;
+      }
+    }
+
+    .rec-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #ff6b84;
+
+      .rec-dot {
+        width: 8px;
+        height: 8px;
+        background: $color-danger;
+        border-radius: 50%;
+        animation: recBlink 1s infinite ease-in-out;
+      }
+    }
+  }
+
+  // Tactical Controls overlay
+  .hud-interactive-bar {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 19, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 12;
+    backdrop-filter: blur(8px);
+
+    @include respond-to("mobile") {
+      width: 90%;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .hud-control-btn {
+      font-family: $font-hud;
+      font-size: 0.75rem;
+      color: #f0f4fc;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background $transition-fast;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        color: $color-green-osd;
+        background: rgba($color-green-osd, 0.15);
+      }
+    }
+
+    .throttle-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: $font-hud;
+      font-size: 0.75rem;
+      color: $color-amber-alert;
+
+      input[type="range"] {
+        width: 80px;
+        accent-color: $color-amber-alert;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes recBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes noiseJitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(2px, 0); }
+}

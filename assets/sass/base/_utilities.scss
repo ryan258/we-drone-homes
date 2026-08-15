@@ -1,0 +1,180 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+
+  @include respond-to("mobile") {
+    padding: 3rem 0;
+  }
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.section-header-split {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-align: left;
+
+    @include respond-to("tablet") {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    .section-header-copy {
+      text-align: left;
+    }
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: $font-hud;
+    font-size: 0.8rem;
+    color: $color-green-dim;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  .section-link {
+    font-family: $font-hud;
+    font-size: 0.85rem;
+    color: $color-text-main;
+    border: 1px solid $color-border-bright;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: all $transition-fast;
+
+    &:hover {
+      border-color: $color-green-osd;
+      color: $color-green-dim;
+    }
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: all $transition-fast;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &.btn-primary {
+    background: $color-green-osd;
+    color: #fff;
+    border-color: $color-green-osd;
+
+    &:hover {
+      background: $color-green-dim;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba($color-green-osd, 0.35);
+    }
+  }
+
+  &.btn-danger {
+    background: $color-danger;
+    color: #fff;
+    border-color: $color-danger;
+
+    &:hover {
+      background: $color-danger-dim;
+    }
+  }
+
+  &.btn-outline {
+    background: $color-surface;
+    border-color: $color-border-bright;
+    color: $color-text-main;
+
+    &:hover {
+      border-color: $color-green-osd;
+      color: $color-green-dim;
+      background: rgba($color-green-osd, 0.06);
+    }
+  }
+
+  &.btn-amber {
+    background: $color-amber-alert;
+    color: #fff;
+
+    &:hover {
+      background: $color-amber-dim;
+    }
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  font-family: $font-hud;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  color: #fff;
+
+  &.badge-green {
+    background: $color-green-osd;
+  }
+
+  &.badge-amber {
+    background: $color-amber-alert;
+  }
+
+  &.badge-danger {
+    background: $color-danger;
+  }
+
+  &.badge-cyan {
+    background: $color-hud-cyan;
+  }
+}
+
+.hud-tag {
+  font-family: $font-hud;
+  font-size: 0.8rem;
+  color: $color-hud-cyan;
+}

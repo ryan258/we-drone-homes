@@ -1,0 +1,133 @@
+// Shared brand lockup — used in both the header and footer, so it lives
+// outside .site-header's scope.
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+
+    .brand-title {
+      font-family: $font-display;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: $color-text-main;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-family: $font-hud;
+      font-size: 0.6rem;
+      color: $color-green-dim;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+  }
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(246, 249, 247, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid $color-border;
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+    gap: 1.5rem;
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    flex-grow: 1;
+
+    .mobile-nav-cta {
+      display: none;
+    }
+
+    @include respond-to("desktop") {
+      display: none;
+
+      &.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: $color-bg;
+        border-bottom: 1px solid $color-border-bright;
+        padding: 2rem;
+        gap: 1.5rem;
+
+        .mobile-nav-cta {
+          display: inline-flex;
+        }
+      }
+    }
+
+    .nav-link {
+      font-family: $font-body;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $color-text-muted;
+      transition: color $transition-fast;
+      position: relative;
+
+      &:hover, &.active {
+        color: $color-text-main;
+      }
+
+      &.active {
+        color: $color-green-dim;
+      }
+
+      &.active::after {
+        content: '';
+        position: absolute;
+        bottom: -22px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $color-green-osd;
+      }
+    }
+  }
+
+  .header-cta {
+    flex-shrink: 0;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.75rem;
+
+    @include respond-to("desktop") {
+      display: none;
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: $color-text-main;
+
+    @include respond-to("desktop") {
+      display: block;
+    }
+  }
+}

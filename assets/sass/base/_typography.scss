@@ -1,0 +1,58 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-text-main;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: $color-text-muted;
+  margin-bottom: 1rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.text-hud {
+  font-family: $font-hud;
+  letter-spacing: 0.05em;
+}
+
+.text-osd-green {
+  @include hud-glow($color-green-osd);
+}
+
+.text-amber {
+  @include hud-glow($color-amber-alert);
+}
+
+.text-danger {
+  @include hud-glow($color-danger);
+}
+
+.text-cyan {
+  @include hud-glow($color-hud-cyan);
+}
+
+.text-gold {
+  color: $color-luxury-gold;
+}

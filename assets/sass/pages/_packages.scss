@@ -1,0 +1,100 @@
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.package-card {
+  @include tactical-glass();
+  border-radius: 8px;
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $color-green-osd;
+  }
+
+  &.featured {
+    border-color: $color-green-osd;
+    background: rgba(18, 24, 38, 0.95);
+    box-shadow: 0 0 35px rgba($color-green-osd, 0.2);
+
+    .featured-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: $color-green-osd;
+      color: #000;
+      font-family: $font-hud;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  .package-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+
+    .package-name {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .package-price {
+      font-family: $font-display;
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: $color-luxury-gold;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+
+      .period {
+        font-size: 0.85rem;
+        color: $color-text-muted;
+        font-family: $font-hud;
+        font-weight: 400;
+      }
+    }
+
+    .package-desc {
+      font-size: 0.85rem;
+      color: $color-text-muted;
+    }
+  }
+
+  .package-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: $color-text-main;
+
+      .check-icon {
+        color: $color-green-osd;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .package-footer {
+    margin-top: auto;
+  }
+}

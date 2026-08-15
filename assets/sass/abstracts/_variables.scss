@@ -1,0 +1,38 @@
+// Colors — light "tactical SaaS" theme
+$color-bg: #f6f9f7;
+$color-bg-dark: #0c1520;
+$color-surface: #ffffff;
+$color-surface-hover: #f0f5f1;
+$color-surface-glass: rgba(255, 255, 255, 0.92);
+$color-border: #e2e8e3;
+$color-border-bright: #cdd8d0;
+
+// Tactical & OSD Colors
+$color-green-osd: #16d76b;
+$color-green-dim: #0fa851;
+$color-amber-alert: #e08900;
+$color-amber-dim: #b56f00;
+$color-danger: #e0193b;
+$color-danger-dim: #b81030;
+$color-hud-cyan: #0098b3;
+$color-luxury-gold: #b8860b;
+$color-text-main: #0d1b2a;
+$color-text-muted: #5b6b7a;
+$color-text-dim: #8a99a5;
+
+// Typography
+$font-hud: 'Share Tech Mono', 'Courier New', monospace;
+$font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// Transitions & Animation
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+$bp-ultra: 1600px;

@@ -1,0 +1,111 @@
+.soundboard-deck {
+  @include tactical-glass();
+  padding: 2.5rem;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include respond-to("mobile") {
+    padding: 1.25rem;
+  }
+
+  .soundboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+
+    .audio-visualizer-bar {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 30px;
+
+      .bar {
+        width: 6px;
+        height: 6px;
+        background: $color-green-osd;
+        border-radius: 2px;
+        transition: height 0.05s ease;
+
+        &.active {
+          animation: barBounce 0.2s infinite alternate;
+        }
+      }
+    }
+  }
+
+  .sound-pads-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    @include respond-to("mobile") {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .sound-pad {
+      @include tactical-glass($color-border);
+      padding: 1.75rem 1.25rem;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      transition: all $transition-fast;
+
+      &:hover {
+        border-color: $color-hud-cyan;
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba($color-hud-cyan, 0.2);
+      }
+
+      &:active, &.playing {
+        background: rgba($color-green-osd, 0.2);
+        border-color: $color-green-osd;
+        box-shadow: 0 0 25px rgba($color-green-osd, 0.6);
+        transform: scale(0.97);
+
+        .pad-icon {
+          color: $color-green-osd;
+          transform: scale(1.2);
+        }
+      }
+
+      .pad-code {
+        font-family: $font-hud;
+        font-size: 0.75rem;
+        color: $color-text-dim;
+        letter-spacing: 0.1em;
+      }
+
+      .pad-icon {
+        font-size: 2.2rem;
+        transition: transform 0.1s ease;
+      }
+
+      .pad-name {
+        font-family: $font-hud;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $color-text-main;
+      }
+
+      .pad-desc {
+        font-size: 0.75rem;
+        color: $color-text-muted;
+      }
+    }
+  }
+}
+
+@keyframes barBounce {
+  0% { height: 4px; }
+  100% { height: 28px; }
+}

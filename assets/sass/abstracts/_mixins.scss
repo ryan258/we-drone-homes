@@ -1,0 +1,62 @@
+// Tactical HUD Text — colored, tracked-out mono label (no neon glow on light bg)
+@mixin hud-glow($color: $color-green-osd) {
+  color: $color;
+  font-family: $font-hud;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Clean elevated card container
+@mixin tactical-glass($border-color: $color-border) {
+  background: $color-surface;
+  border: 1px solid $border-color;
+  box-shadow: 0 4px 20px rgba(13, 27, 42, 0.06);
+  position: relative;
+}
+
+// Tactical Target Corners
+@mixin target-corners($color: $color-hud-cyan) {
+  position: relative;
+  
+  .corner-tl, .corner-tr, .corner-bl, .corner-br {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    pointer-events: none;
+    border-color: $color;
+  }
+
+  .corner-tl { top: -1px; left: -1px; border-top: 2px solid $color; border-left: 2px solid $color; }
+  .corner-tr { top: -1px; right: -1px; border-top: 2px solid $color; border-right: 2px solid $color; }
+  .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid $color; border-left: 2px solid $color; }
+  .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid $color; border-right: 2px solid $color; }
+}
+
+// CRT Scanlines
+@mixin crt-scanlines {
+  position: relative;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+    z-index: 20;
+    background-size: 100% 3px, 4px 100%;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+}
+
+// Responsive Breakpoint Mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "mobile" {
+    @media (max-width: #{$bp-mobile}) { @content; }
+  } @else if $breakpoint == "tablet" {
+    @media (max-width: #{$bp-tablet}) { @content; }
+  } @else if $breakpoint == "desktop" {
+    @media (max-width: #{$bp-desktop}) { @content; }
+  } @else if $breakpoint == "wide" {
+    @media (min-width: #{$bp-wide}) { @content; }
+  }
+}

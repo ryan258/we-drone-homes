@@ -1,0 +1,127 @@
+.waiver-document {
+  @include tactical-glass();
+  padding: 3rem;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include respond-to("mobile") {
+    padding: 1.5rem;
+  }
+
+  .waiver-header {
+    border-bottom: 2px solid $color-danger;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    .waiver-warning-badge {
+      display: inline-block;
+      background: $color-danger;
+      color: #fff;
+      font-family: $font-hud;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba($color-danger, 0.6);
+    }
+  }
+
+  .waiver-clauses {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+
+    .clause-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid $color-border;
+      padding: 1.5rem;
+      border-radius: 4px;
+
+      h4 {
+        font-family: $font-hud;
+        font-size: 1rem;
+        color: $color-amber-alert;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: $color-text-muted;
+      }
+
+      .clause-check {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: $font-hud;
+        font-size: 0.8rem;
+        color: $color-green-osd;
+
+        input[type="checkbox"] {
+          accent-color: $color-green-osd;
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .signature-area {
+    border: 1px dashed $color-border-bright;
+    padding: 1.5rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+
+    .signature-title {
+      font-family: $font-hud;
+      font-size: 0.9rem;
+      color: $color-hud-cyan;
+      margin-bottom: 0.75rem;
+    }
+
+    #signature-canvas {
+      width: 100%;
+      height: 140px;
+      background: #05070a;
+      border: 1px solid $color-border;
+      border-radius: 4px;
+      cursor: crosshair;
+    }
+
+    .canvas-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-family: $font-hud;
+      font-size: 0.75rem;
+      color: $color-text-dim;
+
+      button {
+        color: $color-text-muted;
+        text-decoration: underline;
+        &:hover { color: $color-danger; }
+      }
+    }
+  }
+
+  .waiver-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    @include respond-to("mobile") {
+      flex-direction: column;
+    }
+  }
+}
