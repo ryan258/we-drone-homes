@@ -1,0 +1,860 @@
+{{ define "main" }}
+
+<!-- Hero Cockpit Section -->
+<section class="hero-cockpit">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-pretitle">
+          <span>●</span> <span>FPV INVASION LEVEL 5 READY</span>
+        </div>
+        <h1 class="hero-title">
+          WE DON'T JUST LIST YOUR HOME. <br>
+          <span class="highlight">WE BREACH IT AT 85 KNOTS.</span>
+        </h1>
+        <p class="hero-lead">
+          Cinematic indoor residential FPV drone incursions for luxury suburban listings. We dive chandeliers, thread master bathroom bidets, and exit via doggy doors—with minimal drywall collateral.
+        </p>
+        <div class="hero-actions">
+          <a href="/emergency-dispatch/" class="btn btn-primary">
+            ⚡ DISPATCH RECON DRONE
+          </a>
+          <a href="/drywall-estimator/" class="btn btn-outline">
+            🔨 DRYWALL DAMAGE CALCULATOR
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Interactive Cockpit HUD Viewport -->
+      <div class="hero-hud-column">
+        <div class="hud-frame">
+          <div class="hud-viewport">
+            <!-- Background Simulated Incursion Video / Visual -->
+            <svg class="hud-video" viewBox="0 0 800 450" style="background: radial-gradient(circle at center, #1b263b 0%, #080c14 100%);">
+              <!-- Simulated 3D Room Grid Interior -->
+              <defs>
+                <linearGradient id="gridGlow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#16d76b" stop-opacity="0.3" />
+                  <stop offset="100%" stop-color="#0098b3" stop-opacity="0.1" />
+                </linearGradient>
+              </defs>
+              <!-- Ceiling Grid -->
+              <path d="M0 0 L400 225 L800 0 M200 0 L400 225 M600 0 L400 225" stroke="#1f2d42" stroke-width="1.5" fill="none" />
+              <!-- Floor Grid -->
+              <path d="M0 450 L400 225 L800 450 M200 450 L400 225 M600 450 L400 225" stroke="#1f2d42" stroke-width="1.5" fill="none" />
+              <!-- Walls -->
+              <line x1="0" y1="0" x2="0" y2="450" stroke="#1f2d42" stroke-width="2" />
+              <line x1="800" y1="0" x2="800" y2="450" stroke="#1f2d42" stroke-width="2" />
+              <!-- Simulated Luxury Kitchen Island & Chandelier in Crosshairs -->
+              <rect x="320" y="235" width="160" height="70" fill="#162235" stroke="#16d76b" stroke-width="1.5" rx="4" />
+              <text x="400" y="275" fill="#16d76b" font-family="'Share Tech Mono', monospace" font-size="11" text-anchor="middle">MARBLE ISLAND [TARGET LOCK]</text>
+              <!-- Chandelier Wire Danger Zone -->
+              <line x1="400" y1="40" x2="400" y2="140" stroke="#e08900" stroke-dasharray="4,4" />
+              <circle cx="400" cy="150" r="25" stroke="#ff6b84" stroke-width="2" fill="rgba(255, 30, 68, 0.15)" />
+              <text x="400" y="154" fill="#ff6b84" font-family="'Share Tech Mono', monospace" font-size="10" text-anchor="middle">CRYSTAL CHANDELIER</text>
+            </svg>
+
+            <!-- Static Noise Effect on Disarm -->
+            <div class="static-noise"></div>
+
+            <!-- Disarm Emergency Modal -->
+            <div class="disarm-alert">
+              <h3>⚠️ DRONE DISARMED // IMPACT</h3>
+              <p>DRYWALL PENETRATION DETECTED. PILOT SPACKLE DISPATCHED.</p>
+            </div>
+
+            <!-- Interactive On-Screen Display (OSD) -->
+            <div class="hud-osd">
+              <div class="osd-top">
+                <div class="telemetry-group">
+                  <span>MISSION STATUS: <strong>LIVE</strong></span>
+                  <span>ALT <strong id="osd-alt">85.0 FT</strong> // SPEED <strong id="osd-speed">85.0 MPH</strong></span>
+                </div>
+                <div class="rec-indicator">
+                  <span class="rec-dot"></span>
+                  <span>REC ● 4K 120FPS [00:18:42]</span>
+                </div>
+                <div class="telemetry-group telemetry-right">
+                  <span>TARGET ACQUIRED</span>
+                  <span><strong>100%</strong> ⊙</span>
+                </div>
+              </div>
+
+              <div class="osd-center">
+                <div class="crosshair">
+                  <span class="center-dot"></span>
+                </div>
+              </div>
+
+              <div class="osd-bottom">
+                <div class="telemetry-group">
+                  <span>COORDINATES</span>
+                  <span><strong>33.7480° N / 84.3880° W</strong></span>
+                </div>
+                <div class="telemetry-group telemetry-right">
+                  <span>E.T.A. CLOSING DAY</span>
+                  <span><strong>T-03 DAYS</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Bottom Control Bar -->
+            <div class="hud-interactive-bar">
+              <button id="btn-toggle-osd" class="hud-control-btn active" title="Toggle HUD Overlays">
+                👁️ OSD
+              </button>
+              <div class="throttle-control">
+                <span>THROTTLE:</span>
+                <input type="range" id="hud-throttle" min="0" max="100" value="65">
+                <span id="throttle-val">65%</span>
+              </div>
+              <button id="btn-disarm" class="btn btn-danger" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">
+                ⚠️ DISARM
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Headline Stats Bar -->
+<section class="section" style="padding-top: 0; padding-bottom: 3rem;">
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat-block">
+        <span class="stat-icon">🚁</span>
+        <span class="stat-value">340+</span>
+        <span class="stat-caption">Incursions Completed</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-icon">⚡</span>
+        <span class="stat-value">91%</span>
+        <span class="stat-caption">Faster Sales</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-icon">📈</span>
+        <span class="stat-value">22.8%</span>
+        <span class="stat-caption">Higher Offers</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-icon">💰</span>
+        <span class="stat-value">$9.4M+</span>
+        <span class="stat-caption">Listing Value Unlocked</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Mission MLS Listings -->
+<section class="section" style="background: #fff; border-top: 1px solid #e2e8e3; border-bottom: 1px solid #e2e8e3;">
+  <div class="container">
+    <div class="section-header section-header-split">
+      <div class="section-header-copy">
+        <span class="section-tag">Recent Missions. Maximum Impact.</span>
+        <h2 class="section-title">RECENT BREACHES &amp; CLOSURES</h2>
+      </div>
+      <a href="/listings/" class="section-link">VIEW ALL MISSIONS →</a>
+    </div>
+
+    <div class="flight-grid">
+      <!-- Listing 1 -->
+      <article class="flight-card">
+        <div class="flight-thumb">
+          <svg viewBox="0 0 400 225" style="width: 100%; height: 100%; background: #0c121e;">
+            <rect width="400" height="225" fill="#0c121e"/>
+            <line x1="20" y1="20" x2="380" y2="20" stroke="#1f2d42" stroke-width="2"/>
+            <line x1="20" y1="200" x2="380" y2="200" stroke="#1f2d42" stroke-width="2"/>
+            <path d="M 30 180 Q 150 40 220 120 T 370 60" fill="none" stroke="#16d76b" stroke-width="3" stroke-dasharray="6,4"/>
+            <circle cx="370" cy="60" r="6" fill="#16d76b"/>
+            <text x="200" y="115" fill="#16d76b" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">CHIMNEY DIVE VECTOR</text>
+          </svg>
+          <span class="badge badge-green badge-risk">SOLD</span>
+          <span class="telemetry-tag">TOP SPEED: 52.4 MPH</span>
+        </div>
+        <div class="flight-content">
+          <div class="flight-header">
+            <h3 class="flight-title">The Whispering Pines Cul-de-Sac Incursion</h3>
+            <div class="flight-address">742 Evergreen Terr // 4-Bed / 3.5-Bath</div>
+          </div>
+          <div class="telemetry-metrics">
+            <div class="metric-box">
+              <span class="metric-label">Drywall Strikes</span>
+              <span class="metric-val highlight-green">0 HITS</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">HOA Fines</span>
+              <span class="metric-val highlight-amber">$350.00</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Dog Bark Decibels</span>
+              <span class="metric-val">108 dB</span>
+            </div>
+          </div>
+          <div class="flight-footer">
+            <span class="price-tag">$1,450,000</span>
+            <a href="/listings/whispering-pines/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+              VIEW INTEL →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Listing 2 -->
+      <article class="flight-card">
+        <div class="flight-thumb">
+          <svg viewBox="0 0 400 225" style="width: 100%; height: 100%; background: #0c121e;">
+            <rect width="400" height="225" fill="#0c121e"/>
+            <path d="M 40 40 L 160 160 L 260 80 L 360 190" fill="none" stroke="#e08900" stroke-width="3"/>
+            <circle cx="360" cy="190" r="6" fill="#e08900"/>
+            <text x="200" y="115" fill="#e08900" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">WINE CELLAR SLALOM</text>
+          </svg>
+          <span class="badge badge-amber badge-risk">UNDER CONTRACT</span>
+          <span class="telemetry-tag">TOP SPEED: 64.1 MPH</span>
+        </div>
+        <div class="flight-content">
+          <div class="flight-header">
+            <h3 class="flight-title">The McMansion Monolith</h3>
+            <div class="flight-address">1204 Grand Foyer Blvd // 7-Bed / 8-Bath</div>
+          </div>
+          <div class="telemetry-metrics">
+            <div class="metric-box">
+              <span class="metric-label">Drywall Strikes</span>
+              <span class="metric-val highlight-danger">1 SCUFF</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">HOA Fines</span>
+              <span class="metric-val highlight-amber">$1,200.00</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Ceiling Fan Passes</span>
+              <span class="metric-val highlight-green">6 (ALL CLEAR)</span>
+            </div>
+          </div>
+          <div class="flight-footer">
+            <span class="price-tag">$3,850,000</span>
+            <a href="/listings/mcmansion-monolith/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+              VIEW INTEL →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Listing 3 -->
+      <article class="flight-card">
+        <div class="flight-thumb">
+          <svg viewBox="0 0 400 225" style="width: 100%; height: 100%; background: #0c121e;">
+            <rect width="400" height="225" fill="#0c121e"/>
+            <path d="M 50 100 C 120 20, 200 200, 350 100" fill="none" stroke="#0098b3" stroke-width="3"/>
+            <circle cx="350" cy="100" r="6" fill="#0098b3"/>
+            <text x="200" y="115" fill="#0098b3" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">SUBTERRANEAN BUNKER SWEEP</text>
+          </svg>
+          <span class="badge badge-green badge-risk">SOLD</span>
+          <span class="telemetry-tag">TOP SPEED: 41.8 MPH</span>
+        </div>
+        <div class="flight-content">
+          <div class="flight-header">
+            <h3 class="flight-title">Lakeside Bunker &amp; Solar Compound</h3>
+            <div class="flight-address">88 Off-Grid Way // 3-Bed / 2-Bath</div>
+          </div>
+          <div class="telemetry-metrics">
+            <div class="metric-box">
+              <span class="metric-label">Drywall Strikes</span>
+              <span class="metric-val highlight-green">0 HITS</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">HOA Fines</span>
+              <span class="metric-val highlight-green">$0.00 (NO HOA)</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Solar Flare Interf</span>
+              <span class="metric-val">4%</span>
+            </div>
+          </div>
+          <div class="flight-footer">
+            <span class="price-tag">$2,100,000</span>
+            <a href="/listings/lakeside-bunker/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+              VIEW INTEL →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Listing 4 -->
+      <article class="flight-card">
+        <div class="flight-thumb">
+          <svg viewBox="0 0 400 225" style="width: 100%; height: 100%; background: #0c121e;">
+            <rect width="400" height="225" fill="#0c121e"/>
+            <path d="M 60 30 L 200 190 L 340 30" fill="none" stroke="#16d76b" stroke-width="3"/>
+            <circle cx="340" cy="30" r="6" fill="#16d76b"/>
+            <text x="200" y="115" fill="#16d76b" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">SKYLIGHT VERTICAL DIVE</text>
+          </svg>
+          <span class="badge badge-green badge-risk">SOLD</span>
+          <span class="telemetry-tag">TOP SPEED: 58.7 MPH</span>
+        </div>
+        <div class="flight-content">
+          <div class="flight-header">
+            <h3 class="flight-title">The Penthouse Skylight Incursion</h3>
+            <div class="flight-address">500 High-Rise Tower, Unit PH-4 // 5-Bed / 6-Bath</div>
+          </div>
+          <div class="telemetry-metrics">
+            <div class="metric-box">
+              <span class="metric-label">Drywall Strikes</span>
+              <span class="metric-val highlight-green">0 HITS</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">HOA Fines</span>
+              <span class="metric-val highlight-amber">$2,400.00</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Cat Startle Level</span>
+              <span class="metric-val highlight-amber">MODERATE</span>
+            </div>
+          </div>
+          <div class="flight-footer">
+            <span class="price-tag">$6,200,000</span>
+            <a href="/listings/penthouse-sky-breach/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+              VIEW INTEL →
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- The Drone Fleet Armory -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header-split">
+      <div class="section-header-copy">
+        <span class="section-tag">Our Arsenal. Your Advantage.</span>
+        <h2 class="section-title">THE WDH FLIGHT ARSENAL</h2>
+      </div>
+      <a href="/fleet/" class="section-link">VIEW FULL ARSENAL →</a>
+    </div>
+
+    <div class="drone-grid">
+      <!-- Drone 1 -->
+      <div class="drone-card">
+        <div class="drone-header">
+          <div>
+            <h3 class="drone-title">The Drywall Annihilator 5000</h3>
+            <span class="drone-class">HEAVY-DUTY 7-INCH FREESTYLE QUAD</span>
+          </div>
+          <span class="badge badge-green">DEPLOYED</span>
+        </div>
+        <div class="drone-image-box">
+          <svg viewBox="0 0 300 200" style="width: 80%; height: 80%;">
+            <polygon points="150,40 240,150 60,150" fill="none" stroke="#0d1b2a" stroke-width="3"/>
+            <circle cx="150" cy="110" r="28" fill="#fff" stroke="#16d76b" stroke-width="2"/>
+            <circle cx="60" cy="150" r="30" stroke="#0098b3" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+            <circle cx="240" cy="150" r="30" stroke="#0098b3" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+            <circle cx="150" cy="40" r="30" stroke="#0098b3" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          </svg>
+          <div class="thrust-gauge-overlay">THRUST RATIO: 11:1</div>
+        </div>
+        <div class="drone-specs">
+          <div class="spec-row">
+            <span class="spec-name">FRAME</span>
+            <span class="spec-value">6mm T700 Carbon Armor</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">PROPULSION</span>
+            <span class="spec-value">2807 1300KV Motors (6S)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">NOISE LEVEL</span>
+            <span class="spec-value text-danger">118 dB (Jet Engine in Foyer)</span>
+          </div>
+          <div class="thrust-bar-container">
+            <div class="bar-label">
+              <span>PENETRATION POWER</span>
+              <span>98%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 98%;"></div>
+            </div>
+          </div>
+          <div class="drone-warning">
+            ⚠️ "Not recommended for small powder rooms or spaces with antique porcelain."
+          </div>
+        </div>
+      </div>
+
+      <!-- Drone 2 -->
+      <div class="drone-card">
+        <div class="drone-header">
+          <div>
+            <h3 class="drone-title">CineWhoop Bidet Infiltrator</h3>
+            <span class="drone-class">2.5-INCH DUCTED STEALTH RIG</span>
+          </div>
+          <span class="badge badge-green">DEPLOYED</span>
+        </div>
+        <div class="drone-image-box">
+          <svg viewBox="0 0 300 200" style="width: 80%; height: 80%;">
+            <rect x="70" y="50" width="160" height="100" rx="20" fill="none" stroke="#0098b3" stroke-width="3"/>
+            <circle cx="110" cy="80" r="22" fill="#0098b3" opacity="0.25"/>
+            <circle cx="190" cy="80" r="22" fill="#0098b3" opacity="0.25"/>
+            <circle cx="110" cy="120" r="22" fill="#0098b3" opacity="0.25"/>
+            <circle cx="190" cy="120" r="22" fill="#0098b3" opacity="0.25"/>
+          </svg>
+          <div class="thrust-gauge-overlay">FOAM DUCT CUSHIONING: 100%</div>
+        </div>
+        <div class="drone-specs">
+          <div class="spec-row">
+            <span class="spec-name">FRAME</span>
+            <span class="spec-value">High-Density EVA Foam Ducted</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">PROPULSION</span>
+            <span class="spec-value">1404 4600KV Motors (4S)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">CORRIDOR CLEARANCE</span>
+            <span class="spec-value text-osd-green">14 INCHES MINIMUM</span>
+          </div>
+          <div class="thrust-bar-container">
+            <div class="bar-label">
+              <span>AGILITY RATING</span>
+              <span>94%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 94%;"></div>
+            </div>
+          </div>
+          <div class="drone-warning" style="border-left-color: #16d76b; color: #0fa851; background: rgba(22,215,107,0.06);">
+            ✓ "Safely bounces off crown molding, sliding shower doors, and sleeping cats."
+          </div>
+        </div>
+      </div>
+
+      <!-- Drone 3 -->
+      <div class="drone-card">
+        <div class="drone-header">
+          <div>
+            <h3 class="drone-title">The HOA Ghost (Sub-250g)</h3>
+            <span class="drone-class">COVERT RECONNAISSANCE QUAD</span>
+          </div>
+          <span class="badge badge-green">DEPLOYED</span>
+        </div>
+        <div class="drone-image-box">
+          <svg viewBox="0 0 300 200" style="width: 80%; height: 80%;">
+            <polygon points="150,30 220,160 150,130 80,160" fill="none" stroke="#e08900" stroke-width="2.5"/>
+            <circle cx="150" cy="90" r="14" fill="#e08900" opacity="0.4"/>
+          </svg>
+          <div class="thrust-gauge-overlay">WEIGHT: 249.2 GRAMS</div>
+        </div>
+        <div class="drone-specs">
+          <div class="spec-row">
+            <span class="spec-name">FRAME</span>
+            <span class="spec-value">Ultralight Carbon Monocoque</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">RADAR SIGNATURE</span>
+            <span class="spec-value">Matches Mourning Dove</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-name">FAA STATUS</span>
+            <span class="spec-value text-osd-green">EXEMPT FROM REGISTRATION</span>
+          </div>
+          <div class="thrust-bar-container">
+            <div class="bar-label">
+              <span>STEALTH COEFFICIENT</span>
+              <span>99%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 99%;"></div>
+            </div>
+          </div>
+          <div class="drone-warning" style="border-left-color: #e08900; color: #b56f00; background: rgba(224,137,0,0.06);">
+            ⚠️ "Inaudible past 15 feet. Perfect for gated communities with aggressive fines."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Drywall Intel Value Breach -->
+<section class="section" style="background: #fff; border-top: 1px solid #e2e8e3; border-bottom: 1px solid #e2e8e3;">
+  <div class="container">
+    <div class="section-header" style="text-align: left; align-items: flex-start;">
+      <span class="section-tag">Drywall Intel. Maximum Value.</span>
+      <h2 class="section-title">THE AI DAMAGE BREACH</h2>
+      <p class="section-subtitle" style="margin: 0;">
+        Our flight AI analyzes chandelier density, HOA aggression, and pet turbulence to plan the perfect incursion—maximizing viral reach and minimizing spackle spend.
+      </p>
+    </div>
+
+    <div class="value-breach-grid">
+      <ul class="check-list">
+        <li>Real-Time Drywall Hazard Mapping</li>
+        <li>Dynamic Chandelier Avoidance Routing</li>
+        <li>HOA Threat &amp; Fine Heatmaps</li>
+        <li>Optimal Flight Path Strategy</li>
+        <li>Max Views. Zero Drywall Guesswork.</li>
+      </ul>
+
+      <div class="value-readout">
+        <div class="readout-label">Estimated Market Breach</div>
+        <div class="readout-address">1204 Grand Foyer Blvd, Aspen, CO</div>
+        <div class="readout-price">$3,850,000</div>
+        <div class="gauge-row">
+          <div class="gauge" style="--pct: 92%;">
+            <div class="gauge-inner">92%</div>
+          </div>
+          <div class="gauge-range">
+            Max Viral Impact
+            <strong>$3.6M – $4.1M</strong>
+            optimal listing range
+          </div>
+        </div>
+        <a href="/drywall-estimator/" class="btn btn-primary" style="width: 100%;">
+          LAUNCH PRICING STRIKE →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Drywall & Quote Calculator Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Calculate Invasion Costs</span>
+      <h2 class="section-title">DRYWALL DAMAGE &amp; FEE ESTIMATOR</h2>
+      <p class="section-subtitle">
+        Select your home's structural hazard levels and mission tier to calculate real-time pricing and estimated Zillow viral coefficient.
+      </p>
+    </div>
+
+    <div class="calculator-wrapper">
+      <form id="damage-calc-form" class="calc-form-card">
+        <!-- Section 1: Property Hazards -->
+        <div class="form-section">
+          <h4 class="form-section-title">1. Property Hazard Multipliers</h4>
+
+          <div class="form-group">
+            <label for="calc-sqft">SQUARE FOOTAGE TO INFILTRATE</label>
+            <div class="range-wrap">
+              <input type="range" id="calc-sqft" min="1000" max="12000" step="250" value="3500">
+              <span id="sqft-val" class="range-display">3,500 sq ft</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-ceiling">CEILING OBSTACLE PROFILE</label>
+            <select id="calc-ceiling">
+              <option value="1.0">Standard 8-10ft Ceilings (Easy Pass)</option>
+              <option value="1.3" selected>14ft Vaulted Ceilings with Exposed Beams (Moderate Turbulence)</option>
+              <option value="1.8">24ft Cathedral Grand Foyer (High G-Force Zone)</option>
+              <option value="2.2">Gothic Revival Archways with Iron Trussing (Death Trap)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-chandeliers">CHANDELIER DENSITY</label>
+            <select id="calc-chandeliers">
+              <option value="0">0 Chandeliers (Clean Runway)</option>
+              <option value="1" selected>1 Grand Foyer Chandelier (Tight Orbit Required)</option>
+              <option value="3">3-4 Chandeliers (Slalom Course)</option>
+              <option value="6">Versailles Level Crystal Palace (Extreme Risk)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-pets">PET DISTURBANCE COEFFICIENT</label>
+            <select id="calc-pets">
+              <option value="0">No Pets Present (Zero Turbulence)</option>
+              <option value="75">Golden Retriever (High Tail Wag Turbulence)</option>
+              <option value="150" selected>Curious Indoor Cat with 4ft Vertical Leap (Anti-Air Hazard)</option>
+              <option value="250">Exotic Macaw Flying Loose in Living Room (Air Superiority Dogfight)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 2: Incursion Tier -->
+        <div class="form-section">
+          <h4 class="form-section-title">2. Select Flight Package Tier</h4>
+          <div class="tier-selector">
+            <label class="tier-option">
+              <input type="radio" name="tier" value="499" data-tier-name="The Gentle Orbit">
+              <span class="tier-name">THE GENTLE ORBIT</span>
+              <span class="tier-price">$499</span>
+            </label>
+            <label class="tier-option selected">
+              <input type="radio" name="tier" value="999" data-tier-name="The Full Breach" checked>
+              <span class="tier-name">THE FULL BREACH</span>
+              <span class="tier-price">$999</span>
+            </label>
+            <label class="tier-option">
+              <input type="radio" name="tier" value="1799" data-tier-name="Action Movie Exit">
+              <span class="tier-name">ACTION HERO EXIT</span>
+              <span class="tier-price">$1,799</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Section 3: Tactical Add-Ons -->
+        <div class="form-section">
+          <h4 class="form-section-title">3. Mission Add-Ons &amp; Countermeasures</h4>
+          <div class="addon-checklist">
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="75" checked>
+                <span class="addon-title">Emergency Pilot Spackle & Touch-Up Kit</span>
+              </div>
+              <span class="addon-price">+$75</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="120" checked>
+                <span class="addon-title">Bass-Boosted EDM Soundtrack Sync</span>
+              </div>
+              <span class="addon-price">+$120</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="250">
+                <span class="addon-title">HOA Decoy Drone (Buzzes Clubhouse as Distraction)</span>
+              </div>
+              <span class="addon-price">+$250</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="350">
+                <span class="addon-title">Outdoor Colored Smokebomb Patio Reveal</span>
+              </div>
+              <span class="addon-price">+$350</span>
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <!-- Calculation Summary Output -->
+      <div class="calc-summary-card">
+        <div class="summary-header">
+          <span class="summary-title">MISSION ESTIMATE READOUT</span>
+        </div>
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span class="row-label">Base Incursion Tier</span>
+            <span id="sum-base-price" class="row-val">$999</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Ceiling Hazard Surcharge</span>
+            <span id="sum-ceiling-fee" class="row-val">$105</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Chandelier / Pet Risk Insurance</span>
+            <span id="sum-chandelier-risk" class="row-val">$275</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Pre-Flight Drywall Spackle Deposit</span>
+            <span id="sum-spackle-fee" class="row-val">$188</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Selected Add-Ons</span>
+            <span id="sum-addons" class="row-val">$195</span>
+          </div>
+        </div>
+
+        <div class="total-box">
+          <div class="total-label">TOTAL MISSION COST</div>
+          <div id="sum-total" class="total-amount">$1,762</div>
+          <div id="sum-viral" class="viral-rating">⚡ ESTIMATED ZILLOW VIRAL SCORE: 96.4%</div>
+        </div>
+
+        <a href="/legal-waiver/" class="btn btn-primary" style="width: 100%;">
+          📝 SIGN WAIVER & AUTHORIZE FLIGHT →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Anatomy of a Breach — Marketing Channels Icon Strip -->
+<section class="section" style="background: #fff; border-top: 1px solid #e2e8e3; border-bottom: 1px solid #e2e8e3;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">THE ANATOMY OF A MARKET BREACH</h2>
+    </div>
+
+    <div class="icon-strip">
+      <div class="icon-strip-item">
+        <div class="icon-strip-icon">🚁</div>
+        <h4>Drone Dominance</h4>
+        <p>Aerial visuals that stop the scroll.</p>
+      </div>
+      <div class="icon-strip-item">
+        <div class="icon-strip-icon">🎬</div>
+        <h4>Cinematic Chaos</h4>
+        <p>Hollywood-level edits that sell the vibe.</p>
+      </div>
+      <div class="icon-strip-item">
+        <div class="icon-strip-icon">🎯</div>
+        <h4>Targeted Strike Ads</h4>
+        <p>Laser-focused marketing. Right buyers. Fast.</p>
+      </div>
+      <div class="icon-strip-item">
+        <div class="icon-strip-icon">📡</div>
+        <h4>Social Amplification</h4>
+        <p>We flood the feed. You win the deal.</p>
+      </div>
+      <div class="icon-strip-item">
+        <div class="icon-strip-icon">📊</div>
+        <h4>Damage-Driven Impact</h4>
+        <p>Drywall intel that converts views into offers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FPV Audio Soundboard Teaser -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Audio Experience</span>
+      <h2 class="section-title">THE SOUNDS OF AN INDOOR BREACH</h2>
+      <p class="section-subtitle">
+        Click any tactical pad below to trigger authentic Web Audio synthesized FPV flight sounds.
+      </p>
+    </div>
+
+    <div class="soundboard-deck">
+      <div class="soundboard-header">
+        <div class="text-hud text-osd-green">FREQUENCY: 5.8GHz STEREO DECK</div>
+        <div class="audio-visualizer-bar">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+
+      <div class="sound-pads-grid">
+        <div class="sound-pad" data-sound="whoosh">
+          <span class="pad-code">[SFX-01]</span>
+          <span class="pad-icon">⚡</span>
+          <span class="pad-name">PROP WHOOSH</span>
+          <span class="pad-desc">100% Throttle Punchout</span>
+        </div>
+
+        <div class="sound-pad" data-sound="lipo">
+          <span class="pad-code">[SFX-02]</span>
+          <span class="pad-icon">🔋</span>
+          <span class="pad-name">LIPO LOW BATT</span>
+          <span class="pad-desc">Emergency Voltage Beeps</span>
+        </div>
+
+        <div class="sound-pad" data-sound="shatter">
+          <span class="pad-code">[SFX-03]</span>
+          <span class="pad-icon">💥</span>
+          <span class="pad-name">CHANDELIER CLIP</span>
+          <span class="pad-desc">Crystal Glass Collision</span>
+        </div>
+
+        <div class="sound-pad" data-sound="radio">
+          <span class="pad-code">[SFX-04]</span>
+          <span class="pad-icon">📻</span>
+          <span class="pad-name">RADIO COMMS</span>
+          <span class="pad-desc">Pilot Incursion Squelch</span>
+        </div>
+
+        <div class="sound-pad" data-sound="bass">
+          <span class="pad-code">[SFX-05]</span>
+          <span class="pad-icon">🔊</span>
+          <span class="pad-name">DUBSTEP BASS DROP</span>
+          <span class="pad-desc">Cinematic Realtor Drop</span>
+        </div>
+
+        <div class="sound-pad" data-sound="siren">
+          <span class="pad-code">[SFX-06]</span>
+          <span class="pad-icon">🚨</span>
+          <span class="pad-name">HOA ALARM</span>
+          <span class="pad-desc">Neighborhood Radar Lock</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Realtor Testimonials Section -->
+<section class="section" style="background: #fff; border-top: 1px solid #e2e8e3;">
+  <div class="container">
+    <div class="section-header section-header-split">
+      <div class="section-header-copy">
+        <span class="section-tag">Tested in Combat</span>
+        <h2 class="section-title">WHAT TOP BROKERS ARE SAYING</h2>
+      </div>
+      <a href="/pilots/" class="section-link">VIEW MORE REVIEWS →</a>
+    </div>
+
+    <div class="flight-grid">
+      <div class="flight-card" style="padding: 2rem;">
+        <div style="font-size: 1.1rem; color: #e08900; margin-bottom: 0.75rem;">★★★★★</div>
+        <p style="font-style: italic; margin-bottom: 1.5rem;">
+          "The drone entered the front door at 60mph, did a backflip over the kitchen island, and flew straight into the master closet. My seller was in tears, but the house went for $150k over asking in 4 hours."
+        </p>
+        <div class="testimonial-byline">
+          <div class="avatar-circle">CS</div>
+          <div>
+            <div class="byline-name">Chadwell Sterling</div>
+            <div class="byline-role">Beverly Hills Realtor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flight-card" style="padding: 2rem;">
+        <div style="font-size: 1.1rem; color: #e08900; margin-bottom: 0.75rem;">★★★★★</div>
+        <p style="font-style: italic; margin-bottom: 1.5rem;">
+          "Pilot 'Propwash' accidentally clipped a minor piece of hallway molding, but he had a tub of spackle in his tactical vest and patched it before the listing photos even processed. True professionals."
+        </p>
+        <div class="testimonial-byline">
+          <div class="avatar-circle">KV</div>
+          <div>
+            <div class="byline-name">Karen Van Der Bilt</div>
+            <div class="byline-role">Top 1% Producer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flight-card" style="padding: 2rem;">
+        <div style="font-size: 1.1rem; color: #e08900; margin-bottom: 0.75rem;">★★★★★</div>
+        <p style="font-style: italic; margin-bottom: 1.5rem;">
+          "The HOA tried to confiscate the drone with a pool net. The pilot performed an inverted yaw spin, dodged the net, and breached the clubhouse window. Best marketing video we've ever run."
+        </p>
+        <div class="testimonial-byline">
+          <div class="avatar-circle">DT</div>
+          <div>
+            <div class="byline-name">Derek Thorne</div>
+            <div class="byline-role">Luxury Estates Broker</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>READY TO BREACH YOUR NEXT LISTING?</h2>
+      <p>
+        Our pilots are sitting in lawn chairs with FPV goggles strapped to their foreheads right now. Dispatch your target coordinates today.
+      </p>
+      <a href="/emergency-dispatch/" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">
+        ⚡ LAUNCH EMERGENCY MISSION DISPATCH
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

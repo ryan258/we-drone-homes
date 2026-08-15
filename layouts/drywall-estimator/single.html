@@ -1,0 +1,156 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">INTERACTIVE COST CALCULATOR</span>
+      <h1 class="section-title">DRYWALL DAMAGE & COLLATERAL ESTIMATOR</h1>
+      <p class="section-subtitle">
+        Tailor your mission specs based on chandelier count, ceiling height, and pet hazards to calculate your pre-flight indemnity deposit.
+      </p>
+    </div>
+
+    <div class="calculator-wrapper">
+      <form id="damage-calc-form" class="calc-form-card">
+        <!-- Section 1: Property Hazards -->
+        <div class="form-section">
+          <h4 class="form-section-title">1. Structural Hazard Variables</h4>
+          
+          <div class="form-group">
+            <label for="calc-sqft">TOTAL SQUARE FOOTAGE</label>
+            <div class="range-wrap">
+              <input type="range" id="calc-sqft" min="1000" max="15000" step="250" value="4200">
+              <span id="sqft-val" class="range-display">4,200 sq ft</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-ceiling">CEILING TURBULENCE PROFILE</label>
+            <select id="calc-ceiling">
+              <option value="1.0">Standard 8-10ft Flat Drywall (Level 1)</option>
+              <option value="1.3" selected>14ft Vaulted with Wooden Beams (Level 2)</option>
+              <option value="1.8">24ft Cathedral Foyer with Hanging Pendants (Level 3)</option>
+              <option value="2.5">Gothic Archway Multi-Level Atrium (Death Run)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-chandeliers">CHANDELIER / FIXTURE DENSITY</label>
+            <select id="calc-chandeliers">
+              <option value="0">Zero Chandeliers (Safe Flying)</option>
+              <option value="1" selected>1 Grand Foyer Chandelier (Tight Apex)</option>
+              <option value="3">3-4 Chandeliers (Slalom Gate Challenge)</option>
+              <option value="6">Versailles Palace Crystal Extravaganza (High G-Forces)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-pets">PET DISTURBANCE COEFFICIENT</label>
+            <select id="calc-pets">
+              <option value="0">Zero Pets On Site</option>
+              <option value="75">Curious Golden Retriever</option>
+              <option value="150" selected>Airborne Indoor Feline with Anti-Drone Reflexes</option>
+              <option value="300">Free-Roaming Parrot / Cockatoo (Dogfight Hazard)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 2: Incursion Tier -->
+        <div class="form-section">
+          <h4 class="form-section-title">2. Incursion Package Tier</h4>
+          <div class="tier-selector">
+            <label class="tier-option">
+              <input type="radio" name="tier" value="499" data-tier-name="The Gentle Orbit">
+              <span class="tier-name">THE GENTLE ORBIT</span>
+              <span class="tier-price">$499</span>
+            </label>
+            <label class="tier-option selected">
+              <input type="radio" name="tier" value="999" data-tier-name="The Full Breach" checked>
+              <span class="tier-name">THE FULL BREACH</span>
+              <span class="tier-price">$999</span>
+            </label>
+            <label class="tier-option">
+              <input type="radio" name="tier" value="1799" data-tier-name="Action Hero Exit">
+              <span class="tier-name">ACTION HERO EXIT</span>
+              <span class="tier-price">$1,799</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Section 3: Tactical Add-Ons -->
+        <div class="form-section">
+          <h4 class="form-section-title">3. Tactical Upsells</h4>
+          <div class="addon-checklist">
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="75" checked>
+                <span class="addon-title">Pilot Drywall Spackle & Sanding Kit</span>
+              </div>
+              <span class="addon-price">+$75</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="120" checked>
+                <span class="addon-title">Bass-Boosted EDM Soundtrack License</span>
+              </div>
+              <span class="addon-price">+$120</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="250">
+                <span class="addon-title">HOA Decoy Drone Countermeasure</span>
+              </div>
+              <span class="addon-price">+$250</span>
+            </label>
+            <label class="addon-item">
+              <div class="addon-info">
+                <input type="checkbox" name="addons" value="350">
+                <span class="addon-title">Patio Colored Smoke Bomb Ingress</span>
+              </div>
+              <span class="addon-price">+$350</span>
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <!-- Calculation Summary Output -->
+      <div class="calc-summary-card">
+        <div class="summary-header">
+          <span class="summary-title">ESTIMATED FLIGHT INVOICE</span>
+        </div>
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span class="row-label">Base Incursion Tier</span>
+            <span id="sum-base-price" class="row-val">$999</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Ceiling Obstacle Multiplier</span>
+            <span id="sum-ceiling-fee" class="row-val">$105</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Chandelier / Pet Risk Premium</span>
+            <span id="sum-chandelier-risk" class="row-val">$275</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Pre-Flight Drywall Spackle Deposit</span>
+            <span id="sum-spackle-fee" class="row-val">$219</span>
+          </div>
+          <div class="summary-row">
+            <span class="row-label">Selected Tactical Add-Ons</span>
+            <span id="sum-addons" class="row-val">$195</span>
+          </div>
+        </div>
+
+        <div class="total-box">
+          <div class="total-label">TOTAL ESTIMATED MISSION COST</div>
+          <div id="sum-total" class="total-amount">$1,793</div>
+          <div id="sum-viral" class="viral-rating">⚡ ESTIMATED ZILLOW VIRAL SCORE: 97.2%</div>
+        </div>
+
+        <a href="/legal-waiver/" class="btn btn-primary" style="width: 100%;">
+          📝 SIGN WAIVER & BOOK FLIGHT →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

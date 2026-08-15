@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default "en-US" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <!-- Scripts -->
+  {{ $soundboardJs := resources.Get "js/soundboard.js" | minify | fingerprint }}
+  <script src="{{ $soundboardJs.RelPermalink }}"></script>
+
+  {{ $hudJs := resources.Get "js/hud-simulator.js" | minify | fingerprint }}
+  <script src="{{ $hudJs.RelPermalink }}"></script>
+
+  {{ $damageJs := resources.Get "js/damage-calc.js" | minify | fingerprint }}
+  <script src="{{ $damageJs.RelPermalink }}"></script>
+
+  {{ $waiverJs := resources.Get "js/waiver.js" | minify | fingerprint }}
+  <script src="{{ $waiverJs.RelPermalink }}"></script>
+
+  {{ $terminalJs := resources.Get "js/terminal.js" | minify | fingerprint }}
+  <script src="{{ $terminalJs.RelPermalink }}"></script>
+
+  {{ $mainJs := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $mainJs.RelPermalink }}"></script>
+</body>
+</html>

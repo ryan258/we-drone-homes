@@ -1,0 +1,48 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">LIVE MISSION DISPATCH CONSOLE</span>
+      <h1 class="section-title">TACTICAL COMMAND TERMINAL</h1>
+      <p class="section-subtitle">
+        Direct uplink to the We Drone Homes flight dispatch team. Type terminal commands or click quick-actions below to initiate real-time residential drone incursions.
+      </p>
+    </div>
+
+    <div class="tactical-terminal-card">
+      <div class="terminal-topbar">
+        <div class="terminal-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+        </div>
+        <div class="terminal-title">WDH-TACTICAL-CONSOLE // TTY-5.8GHz</div>
+        <div class="text-hud text-osd-green">SYS: READY</div>
+      </div>
+
+      <div id="terminal-logs" class="terminal-body">
+        <div class="terminal-line line-output">WE DRONE HOMES COMMAND TERMINAL v4.2</div>
+        <div class="terminal-line line-output">ALL FREQUENCIES LOCKED ON 5.8GHz RACEBAND.</div>
+        <div class="terminal-line line-success">● READY FOR TACTICAL MISSION DISPATCH.</div>
+        <div class="terminal-line line-output">TYPE "help" TO DISPLAY OPERATIONAL COMMANDS.</div>
+      </div>
+
+      <div class="terminal-quick-commands">
+        <span class="quick-label">QUICK COMMANDS:</span>
+        <button class="quick-cmd-btn" data-cmd="help">help</button>
+        <button class="quick-cmd-btn" data-cmd="status">status</button>
+        <button class="quick-cmd-btn" data-cmd="scan-hoa">scan-hoa</button>
+        <button class="quick-cmd-btn" data-cmd="launch-recon">launch-recon</button>
+        <button class="quick-cmd-btn" data-cmd="spackle-calc">spackle-calc</button>
+        <button class="quick-cmd-btn" data-cmd="pilots">pilots</button>
+        <button class="quick-cmd-btn" data-cmd="clear">clear</button>
+      </div>
+
+      <div class="terminal-input-row" style="padding: 1rem 1.75rem; background: #080c14; border-top: 1px solid #1f2738;">
+        <span class="prompt-symbol">&gt;</span>
+        <input type="text" id="terminal-input" placeholder="Type tactical command (e.g. launch-recon, scan-hoa, help)..." autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

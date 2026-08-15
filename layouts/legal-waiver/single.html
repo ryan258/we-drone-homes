@@ -1,0 +1,68 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container container-narrow">
+    <div class="waiver-document">
+      <div class="waiver-header">
+        <span class="waiver-warning-badge">⚠️ BINDING LEGAL INDEMNITY AGREEMENT</span>
+        <h1>TACTICAL FLIGHT COLLATERAL WAIVER</h1>
+        <p style="color: #8a99b5; font-size: 0.9rem;">
+          Under Admiralty Law & FAA Artistic Discretion Clause 404-B, the undersigned property owner or listing agent hereby covenants to hold We Drone Homes LLC blameless for all high-velocity residential events.
+        </p>
+      </div>
+
+      <div class="waiver-clauses">
+        <div class="clause-box">
+          <h4>SECTION 1: THE INADVERTENT CHANDELIER CONTACT CLAUSE</h4>
+          <p>
+            Client understands that flying an 80mph carbon fiber racing drone within 4 inches of an antique Austrian crystal chandelier is an inherently artistic endeavor. Should a rotor blade make acoustic contact with a crystal pendant, client agrees this produces an authentic organic sound design effect.
+          </p>
+          <label class="clause-check">
+            <input type="checkbox" class="clause-checkbox" checked>
+            <span>I INITIAL AND ACCEPT CRYSTAL COLLISION RISK</span>
+          </label>
+        </div>
+
+        <div class="clause-box">
+          <h4>SECTION 2: ATTIC & DOGGY DOOR EXTRACTION RISKS</h4>
+          <p>
+            Client authorizes pilot to execute high-G doggy door escapes at full throttle. In the event the flap does not swing open with sufficient velocity, client grants We Drone Homes permission to deploy quick-drying spackle and color-matched primer.
+          </p>
+          <label class="clause-check">
+            <input type="checkbox" class="clause-checkbox" checked>
+            <span>I INITIAL AND AUTHORIZE DOGGY DOOR INGRESS</span>
+          </label>
+        </div>
+
+        <div class="clause-box">
+          <h4>SECTION 3: HOA CONFRONTATION & SUBPOENA INDEMNITY</h4>
+          <p>
+            Client acknowledges that HOA presidents, neighborhood watch volunteers, and golf course marshals may attempt hostile drone interception. Client agrees that We Drone Homes pilots are authorized to execute evasive barrel rolls over community tennis courts.
+          </p>
+          <label class="clause-check">
+            <input type="checkbox" class="clause-checkbox" checked>
+            <span>I ACCEPT FULL HOA FINE RESPONSIBILITY</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Electronic Signature Pad -->
+      <div class="signature-area">
+        <div class="signature-title">✍️ SCRAWL OPERATOR / PROPERTY OWNER SIGNATURE</div>
+        <canvas id="signature-canvas"></canvas>
+        <div class="canvas-actions">
+          <span>SIGN USING MOUSE OR TOUCHSCREEN</span>
+          <button id="btn-clear-sig">CLEAR SIGNATURE</button>
+        </div>
+      </div>
+
+      <div id="waiver-feedback" style="margin-bottom: 1.5rem;"></div>
+
+      <div class="waiver-actions">
+        <button id="btn-submit-waiver" class="btn btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1rem;">
+          ⚡ EXECUTE WAIVER & AUTHORIZE AIRSPACE INVASION
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

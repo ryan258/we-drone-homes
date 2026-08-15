@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">DIRECTORY</span>
+      <h1 class="section-title">{{ .Title }}</h1>
+    </div>
+    <div class="flight-grid">
+      {{ range .Pages }}
+        <div class="flight-card" style="padding: 2rem;">
+          <h3 style="margin-bottom: 0.5rem;"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary }}</p>
+          <a href="{{ .RelPermalink }}" class="btn btn-outline" style="margin-top: 1rem; font-size: 0.8rem;">VIEW DETAILS →</a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

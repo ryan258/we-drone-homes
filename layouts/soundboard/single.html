@@ -1,0 +1,73 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">WEB AUDIO TACTICAL SAMPLER</span>
+      <h1 class="section-title">THE FPV SOUNDBOARD DECK</h1>
+      <p class="section-subtitle">
+        Auditory telemetry synthesized live using the HTML5 Web Audio API. Trigger simulated propwash, low voltage sirens, and chandelier shatters in real time.
+      </p>
+    </div>
+
+    <div class="soundboard-deck">
+      <div class="soundboard-header">
+        <div class="text-hud text-osd-green">LIVE AUDIO SYNTHESIZER // 5.8GHZ DECK</div>
+        <div class="audio-visualizer-bar">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+
+      <div class="sound-pads-grid">
+        <div class="sound-pad" data-sound="whoosh">
+          <span class="pad-code">[PAD-01]</span>
+          <span class="pad-icon">⚡</span>
+          <span class="pad-name">100% PUNCHOUT</span>
+          <span class="pad-desc">2400KV Motor Propwash Whoosh</span>
+        </div>
+
+        <div class="sound-pad" data-sound="lipo">
+          <span class="pad-code">[PAD-02]</span>
+          <span class="pad-icon">🔋</span>
+          <span class="pad-name">LIPO UNDERVOLT</span>
+          <span class="pad-desc">Critical 3.2V / Cell Alarm</span>
+        </div>
+
+        <div class="sound-pad" data-sound="shatter">
+          <span class="pad-code">[PAD-03]</span>
+          <span class="pad-icon">💥</span>
+          <span class="pad-name">CHANDELIER CLASH</span>
+          <span class="pad-desc">Crystal Glass Impact Sound</span>
+        </div>
+
+        <div class="sound-pad" data-sound="radio">
+          <span class="pad-code">[PAD-04]</span>
+          <span class="pad-icon">📻</span>
+          <span class="pad-name">RADIO SQUELCH</span>
+          <span class="pad-desc">Pilot Tactical Ingress Callsign</span>
+        </div>
+
+        <div class="sound-pad" data-sound="bass">
+          <span class="pad-code">[PAD-05]</span>
+          <span class="pad-icon">🔊</span>
+          <span class="pad-name">DUBSTEP DROP</span>
+          <span class="pad-desc">Cinematic Realtor Sub-Bass</span>
+        </div>
+
+        <div class="sound-pad" data-sound="siren">
+          <span class="pad-code">[PAD-06]</span>
+          <span class="pad-icon">🚨</span>
+          <span class="pad-name">HOA THREAT SIREN</span>
+          <span class="pad-desc">Neighborhood Radar Lock</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

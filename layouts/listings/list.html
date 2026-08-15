@@ -1,0 +1,65 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">MISSION MLS DIRECTORY</span>
+      <h1 class="section-title">{{ .Title }}</h1>
+      <p class="section-subtitle">
+        Explore documented tactical residential incursion debriefs. Filter by crash risk rating, flight hours, and HOA fine severity.
+      </p>
+    </div>
+
+    <div class="flight-grid">
+      {{ range .Pages }}
+        <article class="flight-card">
+          <div class="flight-thumb">
+            <svg viewBox="0 0 400 225" style="width: 100%; height: 100%; background: #0c121e;">
+              <rect width="400" height="225" fill="#0c121e"/>
+              <path d="M 30 180 Q 150 40 220 120 T 370 60" fill="none" stroke="{{ if eq .Params.risk_level "EXTREME" }}#ff1e44{{ else if eq .Params.risk_level "HIGH" }}#ff9e00{{ else }}#00ff66{{ end }}" stroke-width="3" stroke-dasharray="6,4"/>
+              <circle cx="370" cy="60" r="6" fill="{{ if eq .Params.risk_level "EXTREME" }}#ff1e44{{ else if eq .Params.risk_level "HIGH" }}#ff9e00{{ else }}#00ff66{{ end }}"/>
+              <text x="200" y="115" fill="#00e5ff" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">{{ .Params.flight_maneuver | default "TACTICAL INVASION VECTOR" }}</text>
+            </svg>
+            <span class="badge {{ if eq .Params.risk_level "EXTREME" }}badge-danger{{ else if eq .Params.risk_level "HIGH" }}badge-amber{{ else }}badge-green{{ end }} badge-risk">
+              CRASH RISK: {{ .Params.risk_level | default "MODERATE" }}
+            </span>
+            <span class="telemetry-tag">TOP SPEED: {{ .Params.top_speed | default "55 MPH" }}</span>
+          </div>
+
+          <div class="flight-content">
+            <div class="flight-header">
+              <h3 class="flight-title">{{ .Title }}</h3>
+              <div class="flight-address">{{ .Params.address }} // {{ .Params.specs }}</div>
+            </div>
+
+            <div class="telemetry-metrics">
+              <div class="metric-box">
+                <span class="metric-label">Drywall Strikes</span>
+                <span class="metric-val {{ if eq .Params.drywall_hits "0 HITS" }}highlight-green{{ else }}highlight-danger{{ end }}">{{ .Params.drywall_hits | default "0 HITS" }}</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">HOA Fines</span>
+                <span class="metric-val highlight-amber">{{ .Params.hoa_fines | default "$0.00" }}</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Pilot Callsign</span>
+                <span class="metric-val highlight-green">{{ .Params.pilot | default "PROPWASH" }}</span>
+              </div>
+            </div>
+
+            <p class="flight-path-preview">
+              <strong>Flight Vector:</strong> {{ .Params.flight_vector }}
+            </p>
+
+            <div class="flight-footer">
+              <span class="price-tag">{{ .Params.price }}</span>
+              <a href="{{ .RelPermalink }}" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+                MISSION DEBRIEF →
+              </a>
+            </div>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

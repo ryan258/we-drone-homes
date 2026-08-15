@@ -1,0 +1,144 @@
+{{ define "main" }}
+<section class="mission-debrief">
+  <div class="container">
+    <div class="mission-header">
+      <span class="section-tag">MISSION DEBRIEF // CLASSIFIED</span>
+      <h1 style="margin: 0.5rem 0;">{{ .Title }}</h1>
+      <div class="mission-meta-strip">
+        <div class="meta-item">📍 ADDRESS: <strong>{{ .Params.address }}</strong></div>
+        <div class="meta-item">💰 ASKING PRICE: <strong>{{ .Params.price }}</strong></div>
+        <div class="meta-item">📐 SPECS: <strong>{{ .Params.specs }}</strong></div>
+        <div class="meta-item">👨‍✈️ OPERATOR: <strong>{{ .Params.pilot }}</strong></div>
+      </div>
+    </div>
+
+    <div class="debrief-layout">
+      <!-- Main Column -->
+      <div class="debrief-main">
+        <!-- Interactive Simulated HUD Player -->
+        <div class="hud-viewport">
+          <svg class="hud-video" viewBox="0 0 800 450" style="background: radial-gradient(circle at center, #1b263b 0%, #080c14 100%);">
+            <path d="M0 0 L400 225 L800 0 M0 450 L400 225 L800 450" stroke="#1f2d42" stroke-width="1.5" fill="none" />
+            <rect x="250" y="160" width="300" height="150" fill="none" stroke="#00ff66" stroke-width="2" stroke-dasharray="8,4" />
+            <text x="400" y="240" fill="#00ff66" font-family="'Share Tech Mono', monospace" font-size="14" text-anchor="middle">MISSION FOOTAGE 4K HDR [RECON STREAM]</text>
+          </svg>
+          <div class="hud-osd">
+            <div class="osd-top">
+              <div>BATT: 6S 22.4V // DRAW: 72A</div>
+              <div class="rec-indicator"><span class="rec-dot"></span> ARCHIVE DEBRIEF</div>
+              <div>SPEED: {{ .Params.top_speed | default "55 MPH" }}</div>
+            </div>
+            <div class="osd-center">
+              <div class="crosshair"><span class="center-dot"></span></div>
+              <div class="artificial-horizon-bar"></div>
+            </div>
+            <div class="osd-bottom">
+              <div>PILOT: {{ .Params.pilot }}</div>
+              <div>ZONE: RESIDENTIAL INTERIOR</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Data Box -->
+        <div class="flight-telemetry-box">
+          <h3 class="telemetry-title">⚡ MISSION TELEMETRY METRICS</h3>
+          <div class="telemetry-grid">
+            <div class="t-card">
+              <span class="t-label">Top Indoor Speed</span>
+              <div class="t-value text-osd-green">{{ .Params.top_speed | default "55.4 MPH" }}</div>
+            </div>
+            <div class="t-card">
+              <span class="t-label">Drywall Strikes</span>
+              <div class="t-value {{ if eq .Params.drywall_hits "0 HITS" }}text-osd-green{{ else }}text-danger{{ end }}">{{ .Params.drywall_hits | default "0 HITS" }}</div>
+            </div>
+            <div class="t-card">
+              <span class="t-label">HOA Injunctions</span>
+              <div class="t-value text-amber">{{ .Params.hoa_fines | default "$0.00" }}</div>
+            </div>
+            <div class="t-card">
+              <span class="t-label">Cat Startle Index</span>
+              <div class="t-value text-cyan">{{ .Params.cat_startle | default "NOMINAL" }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blueprint Incursion Map -->
+        <div class="flight-path-blueprint">
+          <div class="blueprint-header">
+            <h3 class="blueprint-title">📐 2D PENETRATION VECTOR BLUEPRINT</h3>
+            <span class="badge badge-cyan">VECTOR MAPPED</span>
+          </div>
+          <div class="blueprint-visual">
+            <svg viewBox="0 0 600 300">
+              <!-- Floorplan Outlines -->
+              <rect x="50" y="30" width="500" height="240" fill="none" stroke="#1f2d42" stroke-width="2" />
+              <line x1="220" y1="30" x2="220" y2="270" stroke="#1f2d42" stroke-width="2" />
+              <line x1="220" y1="150" x2="550" y2="150" stroke="#1f2d42" stroke-width="2" />
+              <text x="135" y="150" fill="#4a5d78" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">GRAND FOYER</text>
+              <text x="385" y="90" fill="#4a5d78" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">CHEF'S KITCHEN</text>
+              <text x="385" y="210" fill="#4a5d78" font-family="'Share Tech Mono', monospace" font-size="12" text-anchor="middle">MASTER SUITE</text>
+              
+              <!-- Flight trajectory -->
+              <path d="M 30 150 Q 130 50 180 150 T 320 80 T 450 100 T 520 230" fill="none" stroke="#00ff66" stroke-width="3" stroke-dasharray="6,3" />
+              <circle cx="30" cy="150" r="5" fill="#00ff66" />
+              <circle cx="520" cy="230" r="5" fill="#ff1e44" />
+              <text x="50" y="175" fill="#00ff66" font-family="'Share Tech Mono', monospace" font-size="10">ENTRY</text>
+              <text x="500" y="255" fill="#ff1e44" font-family="'Share Tech Mono', monospace" font-size="10">DOGGY DOOR EXIT</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Debrief Narrative Content -->
+        <div style="margin-top: 2rem; padding: 2rem; background: rgba(15, 19, 28, 0.6); border: 1px solid #1f2738; border-radius: 8px;">
+          <h3 style="margin-bottom: 1rem;">MISSION EXECUTION LOG</h3>
+          <div style="color: #8a99b5; line-height: 1.8;">
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Column -->
+      <aside class="sidebar-tactical">
+        <div class="collateral-report-card">
+          <h3 class="report-title">⚠️ COLLATERAL DAMAGE REPORT</h3>
+          <div class="report-list">
+            <div class="report-item">
+              <span class="label">Drywall Breach</span>
+              <span class="val">{{ .Params.drywall_hits | default "0 HITS" }}</span>
+            </div>
+            <div class="report-item">
+              <span class="label">Spackle Deployed</span>
+              <span class="val">{{ .Params.spackle_used | default "0.0 oz" }}</span>
+            </div>
+            <div class="report-item">
+              <span class="label">Chandelier Survival</span>
+              <span class="val text-osd-green">100%</span>
+            </div>
+            <div class="report-item">
+              <span class="label">HOA Fines Issued</span>
+              <span class="val text-amber">{{ .Params.hoa_fines | default "$0.00" }}</span>
+            </div>
+            <div class="report-item">
+              <span class="label">Estimated Zillow Boost</span>
+              <span class="val text-osd-green">+410%</span>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <a href="/emergency-dispatch/" class="btn btn-primary" style="width: 100%;">
+              ⚡ REPLICATE THIS INVASION
+            </a>
+          </div>
+        </div>
+
+        <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid #1f2738; padding: 1.5rem; border-radius: 8px;">
+          <h4 style="font-family: 'Share Tech Mono', monospace; color: #00e5ff; margin-bottom: 0.75rem;">DEPLOYED RIG</h4>
+          <p style="font-size: 0.85rem; color: #8a99b5; margin-bottom: 1rem;">
+            Rig: <strong>{{ .Params.drone_rig | default "CineWhoop Bidet Infiltrator" }}</strong>
+          </p>
+          <a href="/fleet/" class="btn btn-outline" style="width: 100%; font-size: 0.8rem;">VIEW DRONE ARSENAL →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,54 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">SQUAD DOSSIERS</span>
+      <h1 class="section-title">{{ .Title }}</h1>
+      <p class="section-subtitle">
+        Meet our elite, sleep-deprived FPV pilots. Over 10,000 combined hours in lifelike simulators and dozens of pending administrative appeals with local aviation boards.
+      </p>
+    </div>
+
+    <div class="pilot-dossier-grid">
+      {{ range .Pages }}
+        <div class="pilot-card">
+          <div class="pilot-header">
+            <span class="callsign">{{ .Params.callsign }}</span>
+            <span class="status-active">● ACTIVE IN AIRSPACE</span>
+          </div>
+
+          <div class="pilot-photo-box">
+            <svg viewBox="0 0 400 250" style="width: 100%; height: 100%; background: #0b111c;">
+              <circle cx="200" cy="100" r="50" fill="#1b263b" />
+              <path d="M 120 230 C 120 170, 280 170, 280 230" fill="#1b263b" />
+              <!-- FPV Goggles on Avatar -->
+              <rect x="160" y="85" width="80" height="28" rx="8" fill="#00ff66" opacity="0.8" />
+              <circle cx="180" cy="99" r="8" fill="#000" />
+              <circle cx="220" cy="99" r="8" fill="#000" />
+              <line x1="235" y1="85" x2="250" y2="55" stroke="#00ff66" stroke-width="3" />
+            </svg>
+            <span class="flight-hours-badge">LOGGED: {{ .Params.flight_hours }}</span>
+          </div>
+
+          <div class="pilot-body">
+            <p class="pilot-quote">"{{ .Params.quote }}"</p>
+            <div class="pilot-stats">
+              <div class="stat-row">
+                <span class="label">SPECIALTY:</span>
+                <span class="val">{{ .Params.specialty }}</span>
+              </div>
+              <div class="stat-row">
+                <span class="label">FAVORITE MANEUVER:</span>
+                <span class="val">{{ .Params.signature_move }}</span>
+              </div>
+            </div>
+            <div class="pilot-records">
+              ⚠️ DISCIPLINARY RECORD: {{ .Params.disciplinary }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
