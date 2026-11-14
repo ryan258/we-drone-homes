@@ -1,4 +1,4 @@
 ---
-title: "Tactical MLS Mission Directory"
-description: "Review debriefs from our latest high-speed indoor fly-throughs."
+title: "Fictional property portfolio"
+description: "From a twilight estate to a lakeside bunker, four fictional properties get the full flight briefing."
 ---

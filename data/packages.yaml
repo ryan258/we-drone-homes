@@ -1,0 +1,34 @@
+- id: orbit
+  name: The Gentle Orbit
+  eyebrow: A respectable first impression
+  price: 499
+  description: An exterior orbit for the roofline, the lot, and the lawn someone just mowed.
+  features:
+    - 15 beautifully edited aerial photographs
+    - 30-second exterior highlight reel
+    - Roofline, lot, and neighborhood views
+    - MLS and social-ready exports
+    - Drone remains outside. A bold concept.
+- id: breach
+  name: The Full Breach
+  eyebrow: Our most requested explanation
+  price: 999
+  featured: true
+  description: An interior fly-through from the front door to the back patio. The chandelier gets its own waypoint.
+  features:
+    - Everything in The Gentle Orbit
+    - 60-second cinematic interior fly-through
+    - Kitchen, living spaces, and hero details
+    - Three vertical social cuts
+    - One complimentary emotional support spackle
+- id: hero
+  name: The Hero Exit
+  eyebrow: For homes with a third kitchen
+  price: 1799
+  description: A twilight feature film for a house that has started counting its kitchens.
+  features:
+    - Everything in The Full Breach
+    - Golden-hour and twilight coverage
+    - 90-second property feature film
+    - Agent introduction and branded end cards
+    - A dramatic exit, discussed in advance

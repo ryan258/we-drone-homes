@@ -6,6 +6,7 @@ specialty: "High-Speed French Door Ingress & Chandelier Orbits"
 signature_move: "The Reverse Doggy Door Corkscrew"
 disciplinary: "2 FAA Formal Inquiry Letters, Banned from 3 Gated Country Clubs"
 quote: "If your props aren't blowing dust off the antique mantle, you're not getting close enough to the listing price."
+image: "/images/pilots/propwash.webp"
 ---
 
 ### Pilot Background & Dossier

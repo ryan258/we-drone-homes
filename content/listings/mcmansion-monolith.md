@@ -1,5 +1,8 @@
 ---
 title: "The McMansion Monolith"
+description: "A fictional twilight listing with seven bedrooms, eight bathrooms, and one chandelier that declined comment. Explore its simulated flight."
+og_image: "brand/campaign/field-report.png"
+og_image_alt: "The McMansion Monolith at twilight. We Drone Homes field report: An open house with a flight plan. Fictional property."
 date: 2026-08-15
 address: "1204 Grand Foyer Blvd, Sector 9"
 price: "$3,850,000"
@@ -13,14 +16,31 @@ hoa_fines: "$1,200.00"
 risk_level: "EXTREME"
 cat_startle: "NONE (CAT SLEEPING IN HOME THEATER)"
 flight_maneuver: "WINE CELLAR SLALOM"
-flight_vector: "2nd Story Balcony Infiltration -> 400-Bottle Wine Cellar Slalom -> Home Theater Flyby -> Infinity Pool Dive."
+route_summary: "Start at the upper balcony, pass the chandelier in the foyer, then make a detour through the wine cellar on the way to the pool terrace."
+route_stages:
+  - title: "Upper balcony"
+    note: "Start above the drive for a view of the stone façade at twilight."
+  - title: "Grand foyer"
+    note: "Cross the double-height entry and give the chandelier its own shot."
+  - title: "Wine cellar"
+    note: "Frame the bottle racks and pass the home theater on the way out."
+  - title: "Pool terrace"
+    note: "End outside, where the pool reflects the last light."
+image: "/images/listings/mcmansion-monolith.webp"
+image_alt: "A stone mansion at twilight with a brightly lit glass foyer and a circular driveway."
+study_image: "brand/art/chandelier-interior.webp"
+study_image_alt: "A crystal chandelier against a paneled ceiling in warm evening light."
+study_caption: "Concept illustration for the chandelier scene"
+short_title: "The McMansion Monolith"
+category: "estate"
+weight: 1
+project_label: "Twilight estate"
+short_location: "Grand Foyer Blvd"
+teaser: "Seven bedrooms. Eight bathrooms. The chandelier declined comment."
 ---
 
-### Mission Overview & Execution Debrief
-Operator **TREMOR** was deployed to capture this 8,200 square foot architectural monstrosity. The mission called for maximum velocity to capture the homeowner's aggressive marble floor installation.
+## The assignment
 
-#### Key Incursion Milestones:
-1. **Upper Balcony Breach**: Drone dropped from a 400ft dive straight into the second-story master bedroom terrace.
-2. **Wine Cellar Slalom**: Squeezing between floor-to-ceiling racks of vintage Cabernet Sauvignon at 40mph. Zero bottles compromised.
-3. **Minor Hallway Incident**: A high-speed drift in the north corridor resulted in a 0.5-inch carbon prop rub against the baseboard. Pilot immediately applied color-matched Sherwin-Williams satin paint from his tactical utility belt before the homeowners returned.
-4. **HOA Intervention**: The community security golf cart attempted to deploy a pool skimmer net across the driveway. Pilot executed an inverted split-S over the golf cart canopy.
+Photograph the stone exterior at twilight, then show how the house opens from its double-height foyer into the rooms beyond. The scale comes through best when the camera lingers on the staircase, marble, and light through the entry glass.
+
+Tremor gave the 400-bottle wine cellar a brief detour before finishing at the pool terrace. The debrief records one baseboard scuff and a follow-up from the HOA, whose golf cart narrowly missed its chance at a cameo.

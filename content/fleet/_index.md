@@ -1,4 +1,4 @@
 ---
-title: "The Drone Fleet Armory"
-description: "Custom-built carbon fiber quadcopters engineered specifically for aggressive indoor residential flight paths."
+title: "The fleet"
+description: "Meet the fictional camera drones behind the most unfortunately named agency in real estate."
 ---

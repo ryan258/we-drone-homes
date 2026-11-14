@@ -6,6 +6,7 @@ specialty: "Sub-Compact Wine Cellars & Laundry Chute Slaloms"
 signature_move: "The 360° Walk-In Pantry Barrel Roll"
 disciplinary: "Cleared of all charges regarding the 2025 Calabasas Sprinkler Head Incident"
 quote: "Gravity is just a suggestion. So is the 5mph golf cart speed limit."
+image: "/images/pilots/tremor.webp"
 ---
 
 ### Pilot Background & Dossier

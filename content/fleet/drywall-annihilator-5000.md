@@ -8,6 +8,7 @@ thrust_ratio: "11:1 (Over 8kg of combined static thrust)"
 noise: "118 dB (Comparable to a Learjet in the hallway)"
 agility: "88%"
 warning: "⚠️ Not recommended for spaces under 4,000 sq ft or properties with loose heirloom China."
+image: "/images/fleet/drywall-annihilator-5000.webp"
 ---
 
 ### Engineering & Capabilities

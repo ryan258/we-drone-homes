@@ -1,5 +1,6 @@
 ---
-title: "The Penthouse Skylight Incursion"
+title: "The Penthouse"
+description: "An imagined skyline penthouse gets a simulated flight from skylight to elevator lobby."
 date: 2026-08-15
 address: "500 High-Rise Tower, Unit PH-4"
 price: "$6,200,000"
@@ -13,14 +14,28 @@ hoa_fines: "$2,400.00"
 risk_level: "EXTREME"
 cat_startle: "MODERATE"
 flight_maneuver: "SKYLIGHT VERTICAL DIVE"
-flight_vector: "Dive 40 stories down building facade -> Enter motorized glass skylight -> Spiral down spiral floating staircase -> Exit 35th floor elevator lobby."
+route_summary: "Follow the glass façade to the skylight, around the floating staircase, and out through the elevator lobby."
+route_stages:
+  - title: "Glass façade"
+    note: "Open with the tower and the city reflected in its windows."
+  - title: "Skylight"
+    note: "Pass into the atrium above the living room."
+  - title: "Floating staircase"
+    note: "Follow the stair down to the seating area and its skyline view."
+  - title: "Elevator lobby"
+    note: "Finish where guests would arrive from the thirty-fifth floor."
+image: "/images/listings/penthouse-sky-breach.webp"
+image_alt: "A penthouse living room beneath a broad skylight, with city lights visible through floor-to-ceiling windows."
+short_title: "The Penthouse"
+category: "penthouse"
+weight: 3
+project_label: "Skyline interior"
+short_location: "Lumina Tower"
+teaser: "A new perspective on living above your means."
 ---
 
-### Mission Overview & Execution Debrief
-A high-altitude urban incursion executed from the rooftop helipad of the Lumina Tower.
+## The assignment
 
-#### Key Incursion Milestones:
-1. **Vertical Facade Dive**: 40-story terminal velocity dive down the exterior glass curtain wall.
-2. **Skylight Ingress**: Slipped through a 3-foot gap in the automated retractable glass atrium.
-3. **Floating Staircase Corkscrew**: 4 consecutive 360-degree helical rolls centered inside the glass helical staircase.
-4. **Outcome**: Sold sight-unseen to an international tech executive who stated: *"The video felt like a Call of Duty cutscene in a Restoration Hardware catalog."*
+Keep the skyline in frame long enough to see how it changes from the living room to the floating staircase. Propwash starts above the glass atrium and finishes in the elevator lobby so the tour shows both ways into the penthouse.
+
+The staircase was billed as floating. The producer still asked whether it could be moved six inches to the left.

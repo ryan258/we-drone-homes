@@ -8,6 +8,7 @@ thrust_ratio: "5.5:1"
 noise: "64 dB (Gentle hum, safe near sleeping pets)"
 agility: "96%"
 warning: "✓ Safely rebounds off crown molding, wine racks, and glass shower partitions without cosmetic damage."
+image: "/images/fleet/cinewhoop-bidet-infiltrator.webp"
 ---
 
 ### Engineering & Capabilities

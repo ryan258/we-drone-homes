@@ -1,5 +1,6 @@
 ---
-title: "The Whispering Pines Cul-de-Sac Incursion"
+title: "Whispering Pines"
+description: "Follow a simulated interior flight through a fictional suburban home. The golden retriever had notes."
 date: 2026-08-15
 address: "742 Evergreen Terr, Sector 4"
 price: "$1,450,000"
@@ -13,18 +14,28 @@ hoa_fines: "$350.00"
 risk_level: "HIGH"
 cat_startle: "MILD (1 FOOT LEAP)"
 flight_maneuver: "CHIMNEY & FOYER DIVE"
-flight_vector: "Front Door breach -> Double-Loop around Grand Foyer Chandelier -> Master Shower Slalom -> Doggy Door High-G Extraction."
+route_summary: "Enter through the French doors, cross the foyer, circle the primary suite, and finish at the dog door."
+route_stages:
+  - title: "French doors"
+    note: "Open on the front lawn and enter through the double doors."
+  - title: "Grand foyer"
+    note: "Circle the twelve-arm chandelier as the evening light comes through the entry."
+  - title: "Primary suite"
+    note: "Follow the glass shower wall and return through the closet."
+  - title: "Dog door"
+    note: "Finish with the patio and swimming pool in view."
+image: "/images/listings/whispering-pines.webp"
+image_alt: "A two-story suburban home at sunset with open front doors and a small drone in the foyer."
+short_title: "Whispering Pines"
+category: "estate"
+weight: 2
+project_label: "Suburban interior"
+short_location: "Whispering Pines"
+teaser: "A golden-hour fly-through. The golden retriever had notes."
 ---
 
-### Mission Overview & Execution Debrief
-At 14:00 hours, operator **PROPWASH** staged in a lawn chair behind the neighbor's rhododendron hedge. After receiving the listing agent's verbal GO-code via two-way radio, the CineWhoop rig was armed in full Acro mode.
+## The assignment
 
-#### Key Incursion Milestones:
-1. **Ingress**: High-speed 45mph entry through the front double French doors with zero weatherstripping abrasion.
-2. **Grand Foyer Chandelier Slalom**: Pilot executed a vertical inverted loop around the 12-arm Austrian crystal chandelier, pulling 3.8G while maintaining a 6-inch safety buffer from crystal pendants.
-3. **Master Suite & Bidet Inspection**: Flawless 180° yaw spin inside the frameless glass walk-in shower enclosure, exiting through the master closet without disturbing a single cashmere sweater.
-4. **Doggy Door High-G Escape**: Drone accelerated down the hallway at 52mph, cleanly punching through the magnetic doggy door flap and performing an ascending corkscrew over the swimming pool.
+Show how a house on a quiet cul-de-sac opens from the front lawn to the pool. Propwash found the best angle for the opening frame from a folding chair beside the rhododendrons.
 
-#### Realtor Impact:
-* MLS listing page received 14,200 views in the first 24 hours.
-* Property sold for $145,000 over asking with zero buyer inspection contingencies on the drywall.
+The route passes the foyer chandelier and the glass shower before heading back out. The final shot borrows the golden retriever’s usual exit, a directorial decision the dog is still reviewing.

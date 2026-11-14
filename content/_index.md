@@ -1,4 +1,4 @@
 ---
-title: "WE DRONE HOMES // Residential FPV Incursions"
-description: "Cinematic indoor residential FPV drone incursions for luxury suburban listings."
+title: "We Drone Homes"
+description: "A fictional real estate drone agency. Start with the McMansion Monolith and follow a simulated flight through the house with eight bathrooms."
 ---

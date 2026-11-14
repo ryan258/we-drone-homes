@@ -1,5 +1,6 @@
 ---
 title: "Lakeside Bunker & Solar Compound"
+description: "A simulated flight through a fictional off-grid home, from a quiet lakeside exterior to the boat slip."
 date: 2026-08-15
 address: "88 Off-Grid Way, Outpost 3"
 price: "$2,100,000"
@@ -13,13 +14,28 @@ hoa_fines: "$0.00"
 risk_level: "LOW"
 cat_startle: "ZERO (NO PETS ALLOWED IN BUNKER)"
 flight_maneuver: "SUBTERRANEAN SWEEP"
-flight_vector: "Penetrate panic room airduct -> Hover above hydroponic tomato garden -> Full blast out subterranean boat dock."
+route_summary: "Open above the lakeside lot, look into the lower level, pass the greenhouse, and finish at the boat slip."
+route_stages:
+  - title: "Lakeside lot"
+    note: "Frame the solar roof, the tree line, and the house reflected in the lake."
+  - title: "Lower level"
+    note: "Show the rooms tucked under the slope."
+  - title: "Greenhouse"
+    note: "Pause over the hydroponic tomatoes for a detail shot."
+  - title: "Boat slip"
+    note: "End at the waterline with the dock in view."
+image: "/images/listings/lakeside-bunker.webp"
+image_alt: "A modern house with lit windows and a long dock reflected in a still lake."
+short_title: "The Lakeside Bunker"
+category: "off-grid"
+weight: 4
+project_label: "Lakeside aerial"
+short_location: "Lake Travis"
+teaser: "For the buyer who wants to get away from absolutely everyone."
 ---
 
-### Mission Overview & Execution Debrief
-Operator **SKYKAREN** utilized the Sub-250g stealth platform to execute an unannounced reconnaissance pass over an off-grid survivalist compound on Lake Travis.
+## The assignment
 
-#### Key Incursion Milestones:
-1. **Air Duct Infiltration**: Navigated a 16-inch ventilation shaft leading into the reinforced subterranean basement.
-2. **Hydroponic Greenhouse Hover**: Captured 120fps slow-motion footage of heirloom cherry tomatoes without disturbing pollinators.
-3. **Submerged Boat Slip Egress**: Accelerated under the motorized boat lift and skimmed 2 inches above the lake surface at 42mph into open water.
+Skykaren’s brief was to show how the solar roof, greenhouse, and boat slip fit into the sloping lot. The first view pulls the building and its reflection into the same frame.
+
+The lower level gets the wide shot. The hydroponic cherry tomatoes get the close-up. The tomatoes asked for nothing in writing.

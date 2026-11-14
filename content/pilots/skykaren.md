@@ -6,6 +6,7 @@ specialty: "Anti-HOA Countermeasures & Perimeter Infiltration"
 signature_move: "The Inverted Fence Line Hover"
 disciplinary: "Currently has 4 active cease-and-desist letters framed in office"
 quote: "If the HOA president wants to speak to the manager, she'll have to look up."
+image: "/images/pilots/skykaren.webp"
 ---
 
 ### Pilot Background & Dossier

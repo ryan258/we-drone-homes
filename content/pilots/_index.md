@@ -1,4 +1,4 @@
 ---
-title: "Pilot Squad Dossiers"
-description: "Meet the elite, sleep-deprived FPV pilots behind We Drone Homes."
+title: "Meet the crew"
+description: "Meet the fictional pilots behind We Drone Homes. Steady hands. Interesting résumés."
 ---

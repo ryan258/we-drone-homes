@@ -1,4 +1,4 @@
 ---
-title: "Tactical Flight Incursion Packages"
-description: "Select your desired level of residential aerial devastation."
+title: "Fictional photography packages"
+description: "Compare three fictional real estate drone photography packages, from the Gentle Orbit exterior shoot to the Hero Exit twilight film."
 ---

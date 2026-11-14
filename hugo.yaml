@@ -1,52 +1,37 @@
 baseURL: "/"
 locale: "en-US"
-title: "WE DRONE HOMES // Residential FPV Incursions"
+title: "We Drone Homes — Killer views. Unfortunate name."
 enableRobotsTXT: true
-build:
-  writeStats: true
-
 params:
-  brand:
-    name: "WE DRONE HOMES"
-    callsign: "WDH-TACTICAL"
-    tagline: "We don't just list your home. We breach it at 85 knots."
-    subtagline: "Cinematic Residential FPV Incursions with Acceptable Drywall Collateral"
-    faa_status: "CURRENT FAA SANCTION STATUS: 14 DAYS WITHOUT A FORMAL SUBPOENA"
-    emergency_freq: "5.8 GHz CH-R8"
-    call_to_action: "DISPATCH RECON DRONE"
-  social:
-    youtube: "https://youtube.com/@wedronehomes"
-    instagram: "https://instagram.com/wedronehomes"
-    discord: "https://discord.gg/wedronehomes"
-
-taxonomies:
-  tag: "tags"
-  category: "categories"
-  pilot: "pilots"
-
+  description: "A fictional real estate drone agency. Tour imaginary properties and follow their illustrated flight paths."
+  featuredReport: /listings/mcmansion-monolith/
 menus:
   main:
-    - name: "Mission MLS"
-      url: "/listings/"
+    - name: Our work
+      url: /listings/
       weight: 10
-    - name: "Fleet Armory"
-      url: "/fleet/"
+    - name: Packages
+      url: /packages/
       weight: 20
-    - name: "Pilot Dossiers"
-      url: "/pilots/"
+    - name: The crew
+      url: /pilots/
       weight: 30
-    - name: "Flight Packages"
-      url: "/packages/"
+    - name: Our story
+      url: /about/
       weight: 40
-    - name: "Drywall Estimator"
-      url: "/drywall-estimator/"
+    - name: FAQs
+      url: /faq/
       weight: 50
-    - name: "FPV Soundboard"
-      url: "/soundboard/"
-      weight: 60
-    - name: "Crash Waiver"
-      url: "/legal-waiver/"
-      weight: 70
-    - name: "Dispatch Terminal"
-      url: "/emergency-dispatch/"
-      weight: 80
+
+disableKinds: ["taxonomy", "term"]
+
+module:
+  mounts:
+    - source: assets
+      target: assets
+    - source: brand/identity
+      target: assets/brand/identity
+    - source: brand/art
+      target: assets/brand/art
+    - source: brand/campaign
+      target: assets/brand/campaign
