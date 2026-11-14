@@ -1,197 +1,83 @@
-// Web Audio API Synthesizer & Soundboard Engine
-class WDHAudioEngine {
-  constructor() {
-    this.ctx = null;
-    this.initialized = false;
+/* Short, synthesized sounds. Audio begins only after an explicit pad activation. */
+(() => {
+  'use strict';
+  const volume = document.getElementById('sound-volume');
+  const status = document.getElementById('sound-status');
+  const pads = [...document.querySelectorAll('.sound-pad')];
+  if (!volume || !status || !pads.length) return;
+  let context = null;
+  let master = null;
+  let playingPad = null;
+  let timer = null;
+  const sources = new Set();
+  function stop() {
+    clearTimeout(timer);
+    sources.forEach(source => { try { source.stop(); } catch (_) { /* Already stopped. */ } source.disconnect(); });
+    sources.clear();
+    playingPad?.classList.remove('playing');
+    playingPad = null;
   }
-
-  init() {
-    if (!this.initialized) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new AudioCtx();
-      this.initialized = true;
-    }
-    if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
-    }
+  function track(source) {
+    sources.add(source);
+    source.onended = () => { sources.delete(source); source.disconnect(); };
+    return source;
   }
-
-  // Motor Whoosh / High RPM Punchout
-  playPropWhoosh() {
-    this.init();
-    const now = this.ctx.currentTime;
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-    const filter = this.ctx.createBiquadFilter();
-
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(140, now);
-    osc.frequency.exponentialRampToValueAtTime(750, now + 0.4);
-    osc.frequency.exponentialRampToValueAtTime(220, now + 1.2);
-
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(400, now);
-    filter.frequency.exponentialRampToValueAtTime(2800, now + 0.4);
-    filter.frequency.exponentialRampToValueAtTime(600, now + 1.2);
-
-    gain.gain.setValueAtTime(0.01, now);
-    gain.gain.linearRampToValueAtTime(0.4, now + 0.3);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
-
-    osc.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + 1.2);
+  function tone(type, frequencies, duration, offset = 0, level = 0.4) {
+    const start = context.currentTime + offset;
+    const source = track(context.createOscillator());
+    const gain = context.createGain();
+    source.type = type;
+    source.frequency.setValueAtTime(frequencies[0], start);
+    frequencies.slice(1).forEach((frequency, index) => source.frequency.exponentialRampToValueAtTime(frequency, start + duration * (index + 1) / (frequencies.length - 1)));
+    gain.gain.setValueAtTime(0.001, start);
+    gain.gain.exponentialRampToValueAtTime(level, start + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+    source.connect(gain); gain.connect(master);
+    source.start(start); source.stop(start + duration);
   }
-
-  // LiPo Low Battery Warning Beeps
-  playLipoAlarm() {
-    this.init();
-    const now = this.ctx.currentTime;
-    [0, 0.18, 0.36].forEach((timeOffset) => {
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(2600, now + timeOffset);
-
-      gain.gain.setValueAtTime(0.3, now + timeOffset);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + timeOffset + 0.1);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-
-      osc.start(now + timeOffset);
-      osc.stop(now + timeOffset + 0.1);
-    });
-  }
-
-  // Glass Chandelier Shatter Effect
-  playGlassShatter() {
-    this.init();
-    const now = this.ctx.currentTime;
-    const bufferSize = this.ctx.sampleRate * 0.6;
-    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+  function glass() {
+    const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * 0.6), context.sampleRate);
     const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1;
-    }
-
-    const noise = this.ctx.createBufferSource();
-    noise.buffer = buffer;
-
-    const filter = this.ctx.createBiquadFilter();
-    filter.type = 'highpass';
-    filter.frequency.setValueAtTime(3200, now);
-
-    const gain = this.ctx.createGain();
-    gain.gain.setValueAtTime(0.5, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    noise.start(now);
+    for (let index = 0; index < data.length; index++) data[index] = Math.random() * 2 - 1;
+    const source = track(context.createBufferSource()); source.buffer = buffer;
+    const filter = context.createBiquadFilter(); filter.type = 'highpass'; filter.frequency.value = 3200;
+    const gain = context.createGain(); gain.gain.setValueAtTime(0.4, context.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.6);
+    source.connect(filter); filter.connect(gain); gain.connect(master); source.start();
   }
-
-  // Radio Static / Pilot Callsign Squelch
-  playRadioSquelch() {
-    this.init();
-    const now = this.ctx.currentTime;
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-
-    osc.type = 'triangle';
-    osc.frequency.setValueAtTime(950, now);
-    osc.frequency.setValueAtTime(700, now + 0.08);
-
-    gain.gain.setValueAtTime(0.2, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + 0.25);
+  const sounds = {
+    whoosh: () => tone('sawtooth', [140, 750, 220], 1.2, 0, 0.25),
+    lipo: () => [0, 0.18, 0.36].forEach(offset => tone('sine', [2200, 2200], 0.1, offset, 0.3)),
+    shatter: glass,
+    radio: () => tone('triangle', [950, 700], 0.25),
+    bass: () => tone('sine', [160, 32], 1.5),
+    siren: () => tone('square', [800, 1400, 800], 0.6, 0, 0.15)
+  };
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) {
+    status.textContent = 'This browser does not support the soundboard. The captions remain available.';
+    pads.forEach(pad => { pad.disabled = true; });
+    return;
   }
-
-  // Bass Drop / Dubstep Punch
-  playBassDrop() {
-    this.init();
-    const now = this.ctx.currentTime;
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(160, now);
-    osc.frequency.exponentialRampToValueAtTime(32, now + 1.2);
-
-    gain.gain.setValueAtTime(0.6, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
-
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + 1.5);
-  }
-
-  // Tactical Alert Siren
-  playTacticalSiren() {
-    this.init();
-    const now = this.ctx.currentTime;
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(800, now);
-    osc.frequency.linearRampToValueAtTime(1400, now + 0.25);
-    osc.frequency.linearRampToValueAtTime(800, now + 0.5);
-
-    gain.gain.setValueAtTime(0.15, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + 0.6);
-  }
-}
-
-window.WDHAudio = new WDHAudioEngine();
-
-document.addEventListener('DOMContentLoaded', () => {
-  const soundPads = document.querySelectorAll('.sound-pad');
-  const visualizerBars = document.querySelectorAll('.audio-visualizer-bar .bar');
-
-  function animateVisualizer() {
-    visualizerBars.forEach(b => b.classList.add('active'));
-    setTimeout(() => {
-      visualizerBars.forEach(b => b.classList.remove('active'));
-    }, 600);
-  }
-
-  soundPads.forEach(pad => {
-    pad.addEventListener('click', () => {
-      const soundKey = pad.dataset.sound;
-      pad.classList.add('playing');
-      setTimeout(() => pad.classList.remove('playing'), 250);
-
-      animateVisualizer();
-
-      switch (soundKey) {
-        case 'whoosh': window.WDHAudio.playPropWhoosh(); break;
-        case 'lipo': window.WDHAudio.playLipoAlarm(); break;
-        case 'shatter': window.WDHAudio.playGlassShatter(); break;
-        case 'radio': window.WDHAudio.playRadioSquelch(); break;
-        case 'bass': window.WDHAudio.playBassDrop(); break;
-        case 'siren': window.WDHAudio.playTacticalSiren(); break;
-        default: break;
-      }
-    });
+  // Incrementing the request prevents an older resume promise from playing after Stop.
+  let request = 0;
+  pads.forEach(pad => pad.addEventListener('click', async () => {
+    const currentRequest = ++request;
+    try {
+      stop();
+      if (!context) { context = new AudioContext(); master = context.createGain(); master.connect(context.destination); }
+      master.gain.value = Number(volume.value) / 100;
+      if (context.state === 'suspended') await context.resume();
+      if (currentRequest !== request) return;
+      sounds[pad.dataset.sound]();
+      playingPad = pad; pad.classList.add('playing');
+      status.textContent = `Playing: ${pad.querySelector('.pad-name').textContent}.`;
+      timer = setTimeout(() => { stop(); status.textContent = 'Ready for another questionable sound.'; }, 1600);
+    } catch (_) { if (currentRequest !== request) return; stop(); status.textContent = 'Audio could not start. Check your browser audio settings and try again.'; }
+  }));
+  volume.addEventListener('input', () => {
+    document.getElementById('sound-volume-value').textContent = `${volume.value}%`;
+    if (master) master.gain.setTargetAtTime(Number(volume.value) / 100, context.currentTime, 0.02);
   });
-});
+  document.getElementById('stop-audio').addEventListener('click', () => { request++; stop(); status.textContent = 'All sounds stopped. Peace has returned to the neighborhood.'; });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { request++; stop(); status.textContent = 'Audio stopped while this page was away.'; } });
+})();
