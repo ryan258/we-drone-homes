@@ -1,7 +1,7 @@
 .flight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.5rem;
 
   @include respond-to("mobile") {
     grid-template-columns: 1fr;
@@ -9,17 +9,19 @@
 }
 
 .flight-card {
-  @include tactical-glass();
-  border-radius: 4px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform $transition-fast, border-color $transition-fast, box-shadow $transition-fast;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform $transition-base, border-color $transition-base, box-shadow $transition-base;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: $color-green-osd;
-    box-shadow: 0 12px 35px rgba($color-green-osd, 0.15);
+    transform: translateY(-6px);
+    border-color: #b2dfdb;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 
     .flight-thumb img {
       transform: scale(1.05);
@@ -31,7 +33,7 @@
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    background: #000;
+    background: #09131f;
 
     img {
       width: 100%;
@@ -42,45 +44,75 @@
 
     .badge-risk {
       position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
+      top: 0.85rem;
+      right: 0.85rem;
       z-index: 2;
+      font-family: $font-hud;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+
+      &.badge-danger {
+        background: #fff0f3;
+        color: #b81030;
+        border: 1px solid #ffd6dc;
+      }
+
+      &.badge-amber {
+        background: #fff9db;
+        color: #e67700;
+        border: 1px solid #ffec99;
+      }
+
+      &.badge-green {
+        background: #e6f9f0;
+        color: #0fa851;
+        border: 1px solid #a3e9c5;
+      }
     }
 
     .telemetry-tag {
       position: absolute;
-      bottom: 0.75rem;
-      left: 0.75rem;
-      background: rgba(0, 0, 0, 0.75);
-      border: 1px solid $color-border;
-      padding: 0.2rem 0.5rem;
+      bottom: 0.85rem;
+      left: 0.85rem;
+      background: rgba(9, 19, 31, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
       font-family: $font-hud;
-      font-size: 0.75rem;
-      color: $color-green-osd;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #7ee0b3;
       z-index: 2;
       backdrop-filter: blur(4px);
     }
   }
 
   .flight-content {
-    padding: 1.5rem;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 
     .flight-header {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
 
       .flight-title {
-        font-size: 1.25rem;
-        margin-bottom: 0.25rem;
+        font-family: $font-display;
+        font-size: 1.3rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 0.35rem;
         color: $color-text-main;
       }
 
       .flight-address {
         font-family: $font-hud;
-        font-size: 0.85rem;
-        color: $color-hud-cyan;
+        font-size: 0.82rem;
+        color: #0b7285;
+        font-weight: 600;
       }
     }
 
@@ -88,20 +120,24 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.75rem;
-      padding: 0.75rem 0;
-      border-top: 1px solid $color-border;
-      border-bottom: 1px solid $color-border;
+      padding: 0.85rem;
+      background: #fafcfb;
+      border: 1px solid $color-border;
+      border-radius: 8px;
       margin-bottom: 1.25rem;
 
       .metric-box {
         display: flex;
         flex-direction: column;
+        text-align: center;
 
         .metric-label {
           font-family: $font-hud;
           font-size: 0.65rem;
           color: $color-text-dim;
           text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 0.15rem;
         }
 
         .metric-val {
@@ -110,9 +146,9 @@
           font-weight: 700;
           color: $color-text-main;
 
-          &.highlight-amber { color: $color-amber-alert; }
-          &.highlight-danger { color: $color-danger; }
-          &.highlight-green { color: $color-green-osd; }
+          &.highlight-amber { color: #e67700; }
+          &.highlight-danger { color: #b81030; }
+          &.highlight-green { color: #0fa851; }
         }
       }
     }
@@ -120,12 +156,9 @@
     .flight-path-preview {
       font-size: 0.85rem;
       color: $color-text-muted;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
       flex-grow: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     .flight-footer {
@@ -133,12 +166,14 @@
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid $color-border;
 
       .price-tag {
         font-family: $font-display;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: $color-luxury-gold;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #0fa851;
       }
     }
   }

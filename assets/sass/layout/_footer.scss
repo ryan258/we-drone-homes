@@ -1,22 +1,41 @@
 .faa-violation-ticker {
-  background: $color-danger;
-  color: #fff;
-  padding: 0.5rem 0;
+  background: #fff0f3;
+  border-top: 1px solid #ffd6dc;
+  border-bottom: 1px solid #ffd6dc;
+  color: #b81030;
+  padding: 0.65rem 0;
   overflow: hidden;
   white-space: nowrap;
 
   .ticker-track {
     display: inline-block;
-    animation: tickerScroll 25s linear infinite;
+    animation: tickerScroll 30s linear infinite;
     font-family: $font-hud;
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
+
+    .ticker-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e0193b;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    .divider {
+      color: #ffa8b6;
+      margin: 0 0.75rem;
+    }
   }
 }
 
 .site-footer {
-  background: $color-bg-dark;
+  background: #09131f;
   padding: 4rem 0 2rem;
   color: rgba(255, 255, 255, 0.65);
 
@@ -48,7 +67,7 @@
     .footer-heading {
       font-family: $font-hud;
       font-size: 0.8rem;
-      color: $color-green-osd;
+      color: $color-green-dim;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 0.5rem;
@@ -104,6 +123,24 @@
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.4);
     font-family: $font-hud;
+
+    .footer-center-crest {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+      transition: opacity $transition-fast;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      svg {
+        width: 36px;
+        height: 24px;
+        stroke: #79afba;
+      }
+    }
 
     @include respond-to("mobile") {
       flex-direction: column;

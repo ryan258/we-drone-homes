@@ -1,9 +1,11 @@
 .soundboard-deck {
-  @include tactical-glass();
+  background: $color-surface;
+  border: 1px solid $color-border;
   padding: 2.5rem;
-  border-radius: 8px;
-  max-width: 900px;
+  border-radius: 12px;
+  max-width: 960px;
   margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 
   @include respond-to("mobile") {
     padding: 1.25rem;
@@ -17,16 +19,39 @@
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
 
+    .deck-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .deck-title {
+        font-family: $font-display;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: $color-text-main;
+      }
+
+      .deck-sub {
+        font-family: $font-hud;
+        font-size: 0.75rem;
+        color: #0b7285;
+      }
+    }
+
     .audio-visualizer-bar {
       display: flex;
       align-items: flex-end;
       gap: 4px;
-      height: 30px;
+      height: 32px;
+      padding: 4px 8px;
+      background: #fafcfb;
+      border: 1px solid $color-border;
+      border-radius: 6px;
 
       .bar {
         width: 6px;
         height: 6px;
-        background: $color-green-osd;
+        background: $color-green-dim;
         border-radius: 2px;
         transition: height 0.05s ease;
 
@@ -48,9 +73,10 @@
     }
 
     .sound-pad {
-      @include tactical-glass($color-border);
-      padding: 1.75rem 1.25rem;
-      border-radius: 6px;
+      background: #fafcfb;
+      border: 1px solid $color-border;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,53 +85,54 @@
       cursor: pointer;
       user-select: none;
       transition: all $transition-fast;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 
       &:hover {
-        border-color: $color-hud-cyan;
-        transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba($color-hud-cyan, 0.2);
+        border-color: #0b7285;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(11, 114, 133, 0.1);
       }
 
       &:active, &.playing {
-        background: rgba($color-green-osd, 0.2);
-        border-color: $color-green-osd;
-        box-shadow: 0 0 25px rgba($color-green-osd, 0.6);
-        transform: scale(0.97);
+        background: #e6f9f0;
+        border-color: $color-green-dim;
+        box-shadow: 0 0 20px rgba(15, 168, 81, 0.3);
+        transform: scale(0.98);
 
         .pad-icon {
-          color: $color-green-osd;
-          transform: scale(1.2);
+          transform: scale(1.15);
         }
       }
 
       .pad-code {
         font-family: $font-hud;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         color: $color-text-dim;
         letter-spacing: 0.1em;
       }
 
       .pad-icon {
-        font-size: 2.2rem;
-        transition: transform 0.1s ease;
+        font-size: 2.25rem;
+        transition: transform 0.15s ease;
       }
 
       .pad-name {
-        font-family: $font-hud;
-        font-size: 0.95rem;
-        font-weight: 700;
+        font-family: $font-display;
+        font-size: 1.05rem;
+        font-weight: 800;
         color: $color-text-main;
       }
 
       .pad-desc {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         color: $color-text-muted;
+        line-height: 1.4;
       }
     }
   }
 }
 
 @keyframes barBounce {
-  0% { height: 4px; }
-  100% { height: 28px; }
+  0% { height: 6px; }
+  100% { height: 26px; }
 }

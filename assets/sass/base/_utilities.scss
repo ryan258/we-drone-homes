@@ -47,36 +47,56 @@
   .section-tag {
     display: inline-block;
     font-family: $font-hud;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
     color: $color-green-dim;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.1em;
+    background: #e6f9f0;
+    border: 1px solid #a3e9c5;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    margin-bottom: 0.85rem;
   }
 
   .section-title {
+    font-family: $font-display;
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: $color-text-main;
+    letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
+    text-transform: uppercase;
+
+    @include respond-to("mobile") {
+      font-size: 2rem;
+    }
   }
 
   .section-subtitle {
-    max-width: 650px;
+    max-width: 680px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    color: $color-text-muted;
+    line-height: 1.6;
   }
 
   .section-link {
-    font-family: $font-hud;
+    font-family: $font-body;
     font-size: 0.85rem;
-    color: $color-text-main;
-    border: 1px solid $color-border-bright;
-    padding: 0.55rem 1.1rem;
+    font-weight: 700;
+    color: #0b7285;
+    border: 1.5px solid #0b7285;
+    padding: 0.55rem 1.25rem;
     border-radius: 999px;
     white-space: nowrap;
     transition: all $transition-fast;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 
     &:hover {
-      border-color: $color-green-osd;
-      color: $color-green-dim;
+      background: #e6f7ff;
+      color: #0b7285;
     }
   }
 }
@@ -88,11 +108,11 @@
   gap: 0.5rem;
   padding: 0.85rem 1.75rem;
   font-family: $font-body;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
   border-radius: 999px;
   transition: all $transition-fast;
   position: relative;
@@ -100,14 +120,15 @@
   cursor: pointer;
 
   &.btn-primary {
-    background: $color-green-osd;
+    background: $color-green-dim;
     color: #fff;
-    border-color: $color-green-osd;
+    border-color: $color-green-dim;
+    box-shadow: 0 4px 14px rgba(15, 168, 81, 0.3);
 
     &:hover {
-      background: $color-green-dim;
+      background: darken($color-green-dim, 5%);
+      box-shadow: 0 6px 20px rgba(15, 168, 81, 0.4);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba($color-green-osd, 0.35);
     }
   }
 
@@ -122,14 +143,14 @@
   }
 
   &.btn-outline {
-    background: $color-surface;
-    border-color: $color-border-bright;
-    color: $color-text-main;
+    background: transparent;
+    border-color: #0b7285;
+    color: #0b7285;
 
     &:hover {
-      border-color: $color-green-osd;
-      color: $color-green-dim;
-      background: rgba($color-green-osd, 0.06);
+      background: #e6f7ff;
+      border-color: #0b7285;
+      color: #0b7285;
     }
   }
 
@@ -147,34 +168,41 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.25rem 0.65rem;
   font-family: $font-hud;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 999px;
-  color: #fff;
 
   &.badge-green {
-    background: $color-green-osd;
+    background: #e6f9f0;
+    color: #0fa851;
+    border: 1px solid #a3e9c5;
   }
 
   &.badge-amber {
-    background: $color-amber-alert;
+    background: #fff9db;
+    color: #e67700;
+    border: 1px solid #ffec99;
   }
 
   &.badge-danger {
-    background: $color-danger;
+    background: #fff0f3;
+    color: #b81030;
+    border: 1px solid #ffd6dc;
   }
 
   &.badge-cyan {
-    background: $color-hud-cyan;
+    background: #e6f7ff;
+    color: #0b7285;
+    border: 1px solid #99e9f2;
   }
 }
 
 .hud-tag {
   font-family: $font-hud;
   font-size: 0.8rem;
-  color: $color-hud-cyan;
+  color: #0b7285;
 }

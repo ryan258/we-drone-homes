@@ -1,0 +1,390 @@
+.report-label {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .75rem;
+}
+
+.report-label .brand-glyph {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.listing-card-link {
+  display: block;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.listing-card-link .property-image {
+  border-radius: 0;
+}
+
+.listing-card-link .image-label {
+  padding: .4rem .65rem;
+  background: var(--ink);
+  color: var(--white);
+  font-size: .75rem;
+}
+
+.listing-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.listing-card-body .property-meta {
+  align-items: baseline;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: .35rem .75rem;
+  margin-top: 0;
+  font: 700 .75rem/1.55 var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.featured-listing-label {
+  padding-inline: .35rem;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.listing-card-body h3 {
+  font-size: clamp(1.4rem, 2.25vw, 1.9rem);
+}
+
+.listing-card-link:hover h3,
+.listing-card-link:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.listing-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: .75rem;
+  color: var(--muted);
+  font: .75rem/1.55 var(--mono);
+}
+
+.listing-card-cta,
+.report-crew .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.listing-card-cta .brand-glyph,
+.report-crew .text-link .brand-glyph {
+  width: 1rem;
+  height: 1rem;
+}
+
+.filter-button {
+  border-color: var(--muted);
+  font-size: .875rem;
+}
+
+.filter-count {
+  font-size: .75rem;
+}
+
+.report-hero {
+  grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.report-hero h1 {
+  margin: .75rem 0 1rem;
+  overflow-wrap: anywhere;
+}
+
+.report-deck {
+  font-size: clamp(1.075rem, 1.75vw, 1.375rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.report-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.25rem;
+  margin-top: 1.25rem;
+  font: .75rem/1.55 var(--mono);
+}
+
+.report-photo {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.report-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+}
+
+.report-photo figcaption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .25rem 1rem;
+  padding: .75rem 1rem;
+  font: 700 .75rem/1.5 var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.flight-report .route-panel {
+  margin: 0 0 clamp(2rem, 5vw, 4rem);
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.flight-report .route-panel .route-summary,
+.route-no-script {
+  max-width: 57ch;
+  color: var(--paper);
+  font-size: 1rem;
+}
+
+.route-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.route-map {
+  margin: 0 0 .75rem;
+}
+
+.route-partitions,
+.route-furniture {
+  fill: none;
+  stroke: #849482;
+  stroke-width: 2;
+}
+
+.route-furniture {
+  stroke: #728572;
+}
+
+.flight-report .route-map .route-line {
+  stroke-width: 3;
+  stroke-dasharray: 8 5;
+}
+
+.route-waypoints circle {
+  fill: var(--ink);
+  stroke: var(--yellow);
+  stroke-width: 2;
+}
+
+.flight-report .route-waypoints text {
+  fill: var(--yellow);
+  font-size: 22px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+#sim-drone {
+  fill: var(--yellow);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.flight-report .route-controls {
+  display: grid;
+  grid-template-columns: minmax(14rem, max-content) minmax(0, 1fr) max-content;
+  align-items: end;
+  gap: .75rem;
+}
+
+.flight-report .route-panel .button {
+  gap: .4rem;
+  min-width: 0;
+  min-height: 44px;
+  font-size: .875rem;
+}
+
+.flight-report .route-panel .button .brand-glyph {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.flight-report .route-panel :focus-visible {
+  outline-color: var(--yellow);
+}
+
+.route-scrubber {
+  min-width: 0;
+}
+
+.flight-report .route-scrubber label {
+  display: block;
+  width: auto;
+  font-size: .75rem;
+}
+
+.flight-report .route-scrubber input {
+  display: block;
+  width: 100%;
+  min-height: var(--wdh-control-target);
+  margin: 0;
+}
+
+.flight-report .route-panel .route-readout {
+  color: var(--yellow);
+  font-size: .875rem;
+}
+
+.route-stages {
+  display: grid;
+  gap: .75rem;
+  margin: 0;
+  list-style-type: decimal;
+  padding-inline-start: 1.25rem;
+}
+
+.route-stages li {
+  padding: 0 0 .65rem .25rem;
+  border-bottom: 1px solid #607161;
+}
+
+.route-stages li::marker {
+  color: var(--yellow);
+  font: 700 .875rem var(--mono);
+}
+
+.route-stages strong {
+  font-size: 1rem;
+}
+
+.route-stages strong[aria-current="step"] {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.route-stages p {
+  margin-top: .2rem;
+  color: var(--paper);
+  font-size: .925rem;
+}
+
+.report-study {
+  max-width: 38rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+}
+
+.report-study img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 34%;
+}
+
+.report-study figcaption {
+  padding: .65rem .85rem;
+  font: .75rem/1.5 var(--mono);
+}
+
+.report-log {
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.report-log h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.report-log .detail-metrics {
+  margin: 1rem 0 1.5rem;
+}
+
+.report-log .detail-metrics dt {
+  font-size: .75rem;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.25rem;
+}
+
+@media (max-width: 910px) {
+  .route-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .report-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .report-photo img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 640px) {
+  .flight-report .route-controls {
+    grid-template-columns: minmax(0, 1fr) max-content;
+  }
+
+  .flight-report #route-play {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: min(100%, 14rem);
+  }
+
+  .flight-report .route-waypoints text {
+    font-size: 34px;
+  }
+
+  .flight-report #sim-drone {
+    r: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .flight-report .route-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flight-report #route-reset {
+    justify-self: start;
+  }
+}
+
+@media print {
+  .flight-report .route-panel {
+    display: block !important;
+    background: var(--ink);
+    break-inside: avoid;
+    print-color-adjust: exact;
+  }
+
+  .flight-report .route-controls,
+  .flight-report .route-readout {
+    display: none;
+  }
+
+  .report-photo {
+    print-color-adjust: exact;
+  }
+}
