@@ -1,62 +1,37 @@
-<!-- FAA Violation Scrolling Ticker -->
-<div class="faa-violation-ticker">
-  <div class="ticker-track">
-    ⚠️ {{ .Site.Params.brand.faa_status }} // COLLATERAL DRYWALL DAMAGE LEVEL: NOMINAL // MAXIMUM SPEED IN MASTER CLOSET: 47.3 MPH // ALL REALTOR WAIVERS ARE ELECTRONICALLY BINDING UNDER ADMIRALTY LAW // DO NOT ENGAGE PILOT DURING ATTIC SLALOM // 🚁 WE DRONE HOMES //
-  </div>
-</div>
-
 <footer class="site-footer">
   <div class="container">
+    <div class="footer-top">
+      <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="We Drone Homes, home">{{ partial "mark.html" "reverse" }}</a>
+      <p>A fictional real estate drone agency.</p>
+      {{ $report := site.GetPage site.Params.featuredReport }}
+      {{ if eq .RelPermalink $report.RelPermalink }}
+        <a class="button button-yellow" href="{{ "listings/" | relURL }}">Explore the fictional portfolio {{ partial "glyph.html" "property" }}</a>
+      {{ else }}
+        <a class="button button-yellow" href="{{ $report.RelPermalink }}">View the featured flight report {{ partial "glyph.html" "flight-path" }}</a>
+      {{ end }}
+    </div>
     <div class="footer-grid">
-      <div class="footer-col">
-        <div class="brand-logo" style="margin-bottom: 0.5rem;">
-          <span class="logo-icon">🚁</span>
-          <div class="brand-text">
-            <span class="brand-title">{{ .Site.Params.brand.name }}</span>
-            <span class="brand-sub">TACTICAL REAL ESTATE DOMINANCE</span>
-          </div>
-        </div>
-        <p style="font-size: 0.85rem; line-height: 1.6;">
-          Delivering high-velocity, cinematic indoor residential FPV drone fly-throughs. If your listing video doesn't trigger vertigo and set off the smoke detector, you're leaving money on the table.
-        </p>
-        <div class="footer-social">
-          {{ with .Site.Params.social.youtube }}<a href="{{ . }}" aria-label="YouTube">▶</a>{{ end }}
-          {{ with .Site.Params.social.instagram }}<a href="{{ . }}" aria-label="Instagram">◎</a>{{ end }}
-          {{ with .Site.Params.social.discord }}<a href="{{ . }}" aria-label="Discord">✦</a>{{ end }}
-        </div>
+      <div>
+        <h2>{{ partial "glyph.html" "property" }} The agency</h2>
+        <a href="{{ "listings/" | relURL }}">Fictional portfolio</a>
+        <a href="{{ "packages/" | relURL }}">Fictional packages</a>
+        <a href="{{ "pilots/" | relURL }}">Meet the crew</a>
+        <a href="{{ "fleet/" | relURL }}">The fleet</a>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-heading">Missions & Fleet</div>
-        <div class="footer-links">
-          <a href="/listings/">Tactical MLS Listings</a>
-          <a href="/fleet/">Drone Rig Arsenal</a>
-          <a href="/pilots/">Squad Dossiers</a>
-          <a href="/packages/">Incursion Packages</a>
-        </div>
+      <div>
+        <h2>{{ partial "glyph.html" "dispatch" }} Ground control</h2>
+        <a href="{{ "about/" | relURL }}">About the name</a>
+        <a href="{{ "faq/" | relURL }}">FAQs</a>
+        <a href="{{ "emergency-dispatch/" | relURL }}">Mock booking and dispatch</a>
+        <a href="{{ "privacy/" | relURL }}">Privacy and parody</a>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-heading">Interactive Ops</div>
-        <div class="footer-links">
-          <a href="/drywall-estimator/">Drywall Estimator</a>
-          <a href="/soundboard/">FPV Audio Deck</a>
-          <a href="/legal-waiver/">Crash Liability Waiver</a>
-          <a href="/emergency-dispatch/">Tactical Terminal</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-heading">Legal & Compliance</div>
-        <p style="font-size: 0.8rem;">
-          <strong>FAA Disclaimer:</strong> Flights conducted under extreme artistic interpretation of Part 107. We Drone Homes is not responsible for pets startled into swimming pools or potted ficus trees ingested by 5-inch carbon props.
-        </p>
+      <div>
+        <h2>{{ partial "glyph.html" "info" }} Extras</h2>
+        <a href="{{ "drywall-estimator/" | relURL }}">Drywall estimator</a>
+        <a href="{{ "soundboard/" | relURL }}">Soundboard</a>
+        <a href="{{ "legal-waiver/" | relURL }}">The unofficial waiver</a>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <div>© {{ now.Format "2006" }} WE DRONE HOMES LLC. ALL RIGHTS RESERVED.</div>
-      <div>FREQUENCY: 5.8GHz VTX // OSD FIRMWARE: BETAFLIGHT 4.5.1</div>
-    </div>
+    <div class="footer-bottom"><span>© {{ now.Format "2006" }} We Drone Homes</span><a href="#top">Back to top ↑</a></div>
   </div>
 </footer>

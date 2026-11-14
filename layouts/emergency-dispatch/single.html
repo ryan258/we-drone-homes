@@ -1,48 +1,97 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">LIVE MISSION DISPATCH CONSOLE</span>
-      <h1 class="section-title">TACTICAL COMMAND TERMINAL</h1>
-      <p class="section-subtitle">
-        Direct uplink to the We Drone Homes flight dispatch team. Type terminal commands or click quick-actions below to initiate real-time residential drone incursions.
-      </p>
-    </div>
-
-    <div class="tactical-terminal-card">
-      <div class="terminal-topbar">
-        <div class="terminal-dots">
-          <span class="dot-red"></span>
-          <span class="dot-yellow"></span>
-          <span class="dot-green"></span>
+<div class="container page-content">
+  <header class="page-intro">
+    <span class="eyebrow">Mock booking</span>
+    <h1>Build a fictional flight.</h1>
+    <p>Choose a property, the light, and a photo package. Your browser turns those choices into a flight brief you can save.</p>
+  </header>
+  <p class="parody-note">The brief stays in your browser until you save it. There’s no appointment, payment, or need to enter personal information.</p>
+  <noscript><p class="noscript-note">Enable JavaScript to generate a mock flight brief. You can still browse every package and property.</p></noscript>
+  <div class="form-layout">
+    <form id="booking-form" class="form-panel">
+      <fieldset>
+        <legend>01 / Fictional package</legend>
+        <div class="option-list">
+          {{ range hugo.Data.packages }}
+          <label class="choice">
+            <input type="radio" name="package" value="{{ .id }}" data-price="{{ .price }}" data-name="{{ .name }}"{{ if .featured }} checked{{ end }}>
+            <span class="choice-text">{{ .name }}</span><span>${{ .price | lang.FormatNumber 0 }}</span>
+          </label>
+          {{ end }}
         </div>
-        <div class="terminal-title">WDH-TACTICAL-CONSOLE // TTY-5.8GHz</div>
-        <div class="text-hud text-osd-green">SYS: READY</div>
-      </div>
-
-      <div id="terminal-logs" class="terminal-body">
-        <div class="terminal-line line-output">WE DRONE HOMES COMMAND TERMINAL v4.2</div>
-        <div class="terminal-line line-output">ALL FREQUENCIES LOCKED ON 5.8GHz RACEBAND.</div>
-        <div class="terminal-line line-success">● READY FOR TACTICAL MISSION DISPATCH.</div>
-        <div class="terminal-line line-output">TYPE "help" TO DISPLAY OPERATIONAL COMMANDS.</div>
-      </div>
-
-      <div class="terminal-quick-commands">
-        <span class="quick-label">QUICK COMMANDS:</span>
-        <button class="quick-cmd-btn" data-cmd="help">help</button>
-        <button class="quick-cmd-btn" data-cmd="status">status</button>
-        <button class="quick-cmd-btn" data-cmd="scan-hoa">scan-hoa</button>
-        <button class="quick-cmd-btn" data-cmd="launch-recon">launch-recon</button>
-        <button class="quick-cmd-btn" data-cmd="spackle-calc">spackle-calc</button>
-        <button class="quick-cmd-btn" data-cmd="pilots">pilots</button>
-        <button class="quick-cmd-btn" data-cmd="clear">clear</button>
-      </div>
-
-      <div class="terminal-input-row" style="padding: 1rem 1.75rem; background: #080c14; border-top: 1px solid #1f2738;">
-        <span class="prompt-symbol">&gt;</span>
-        <input type="text" id="terminal-input" placeholder="Type tactical command (e.g. launch-recon, scan-hoa, help)..." autocomplete="off" spellcheck="false">
-      </div>
-    </div>
+      </fieldset>
+      <fieldset>
+        <legend>02 / Property and light</legend>
+        <div class="form-group">
+          <label for="booking-property">Fictional property</label>
+          <select id="booking-property" name="property">
+            <option>The McMansion Monolith</option>
+            <option>Whispering Pines</option>
+            <option>The Penthouse</option>
+            <option>The Lakeside Bunker</option>
+            <option>A suspiciously photogenic starter home</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="booking-window">Preferred light</label>
+          <select id="booking-window" name="window">
+            <option>Golden hour — flattering to absolutely everyone</option>
+            <option>Morning — before the leaf blowers assemble</option>
+            <option>Midday — confident about the landscaping</option>
+            <option>Twilight — let the exterior lighting do the work</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>03 / Optional extras</legend>
+        <div class="option-list">
+          <label class="choice"><input type="checkbox" name="extra" value="75" data-name="Emergency spackle kit"><span class="choice-text">Emergency spackle kit</span><span>+$75</span></label>
+          <label class="choice"><input type="checkbox" name="extra" value="120" data-name="Unreasonably dramatic soundtrack"><span class="choice-text">Unreasonably dramatic soundtrack</span><span>+$120</span></label>
+          <label class="choice"><input type="checkbox" name="extra" value="250" data-name="HOA diplomacy liaison"><span class="choice-text">HOA diplomacy liaison</span><span>+$250</span></label>
+        </div>
+      </fieldset>
+      <button class="button button-dark" type="submit" id="booking-submit"><span id="booking-submit-label">Generate mock flight brief</span>{{ partial "glyph.html" "briefing" }}</button>
+    </form>
+    <aside class="quote-summary">
+      <span class="eyebrow">Your flight plan</span>
+      <h2 id="booking-package-name">The Full Breach</h2>
+      <div class="summary-row"><span>Photography package</span><span id="booking-base">$999</span></div>
+      <div class="summary-row"><span>Selected extras</span><span id="booking-extras">$0</span></div>
+      <div class="summary-row"><span>Explaining the name</span><span>On us</span></div>
+      <div class="summary-total" role="status" aria-live="polite"><span>Imaginary total (USD)</span><strong id="booking-total">$999</strong></div>
+      <a class="text-link" style="margin-top:22px;color:var(--yellow)" href="{{ "/packages/" | relURL }}">Compare fictional packages {{ partial "glyph.html" "arrow-up-right" }}</a>
+    </aside>
   </div>
-</section>
+  <section id="booking-result" class="output-message" tabindex="-1" hidden aria-labelledby="booking-result-title">
+    <h2 id="booking-result-title">Mock flight brief ready.</h2>
+    <p id="booking-confirmation"></p>
+    <p>Nothing was sent or reserved. Our imaginary dispatcher has checked a box.</p>
+    <div>
+      <button class="button button-dark" id="download-brief" type="button">Save flight brief {{ partial "glyph.html" "briefing" }}</button>
+      <button class="button button-outline" id="booking-reset" type="button">Plan another fictional flight {{ partial "glyph.html" "reset" }}</button>
+    </div>
+  </section>
+  <section class="tool-section">
+    <h2>Ground control is standing by.</h2>
+    <p>Try the fictional dispatch console. Every command has a button, including the one that checks the spackle.</p>
+    <div class="terminal">
+      <div class="terminal-top"><span>WDH / Ground control</span><span>Simulated connection</span></div>
+      <div class="terminal-log" id="terminal-log" role="log" aria-live="polite" aria-relevant="additions">GROUND CONTROL ONLINE. THE FOLDING CHAIR IS LEVEL.
+Select a command below. No aircraft are connected.</div>
+      <div class="terminal-actions">
+        <button type="button" data-command="status">Fleet status</button>
+        <button type="button" data-command="scan-hoa">Scan for HOA</button>
+        <button type="button" data-command="launch-recon">Simulate launch</button>
+        <button type="button" data-command="spackle-calc">Check spackle</button>
+        <button type="button" data-command="pilots">Pilot roll call</button>
+        <button type="button" data-command="help">Help</button>
+        <button type="button" data-command="clear">Clear</button>
+      </div>
+      <form id="terminal-form">
+        <label for="terminal-command">Optional command (short codes: s, h, l, p)</label>
+        <div class="terminal-command"><input id="terminal-command" maxlength="80" autocomplete="off" spellcheck="false" placeholder="status"><button type="submit">Run command</button></div>
+      </form>
+    </div>
+  </section>
+</div>
 {{ end }}

@@ -1,0 +1,6 @@
+{{- $name := "logo-horizontal.svg" -}}
+{{- if eq . "reverse" -}}
+  {{- $name = "logo-horizontal-reverse.svg" -}}
+{{- end -}}
+{{- $logo := resources.Get (printf "brand/identity/%s" $name) | fingerprint -}}
+<img class="brand-logo" src="{{ $logo.RelPermalink }}" width="360" height="78" alt="">

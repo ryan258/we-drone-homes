@@ -1,0 +1,15 @@
+<div class="pricing-grid">
+  {{ range hugo.Data.packages }}
+  <article class="price-card{{ if .featured }} featured{{ end }}">
+    <div class="price-card-top">
+      <span class="eyebrow">{{ .eyebrow }}</span>
+      {{ if .featured }}<span class="small-label">Featured package</span>{{ end }}
+    </div>
+    <h3>{{ .name }}</h3>
+    <p>{{ .description }}</p>
+    <div class="price">${{ .price | lang.FormatNumber 0 }}<span>/ fictional shoot</span></div>
+    <ul class="checklist">{{ range .features }}<li>{{ . }}</li>{{ end }}</ul>
+    <a class="button {{ if .featured }}button-yellow{{ else }}button-outline{{ end }}" href="{{ "/emergency-dispatch/" | relURL }}?package={{ .id }}">Choose {{ .name }} {{ partial "glyph.html" "packages" }}</a>
+  </article>
+  {{ end }}
+</div>

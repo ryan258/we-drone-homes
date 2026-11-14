@@ -1,0 +1,21 @@
+{{ $id := .File.ContentBaseName }}
+{{ $title := .Params.short_title | default .Title }}
+{{ $featured := site.GetPage site.Params.featuredReport }}
+{{ $isFeatured := and $featured (eq .RelPermalink $featured.RelPermalink) }}
+<article class="property-card" data-property-category="{{ .Params.category | default "estate" }}">
+  <a class="listing-card-link" href="{{ .RelPermalink }}" aria-labelledby="action-{{ $id }} title-{{ $id }}">
+    <div class="property-image">
+      <img src="{{ .Params.image | strings.TrimPrefix "/" | relURL }}" alt="{{ .Params.image_alt }}" width="1376" height="768" loading="lazy">
+      <span class="image-label">Fictional property</span>
+    </div>
+    <div class="listing-card-body">
+      <p class="property-meta">{{ .Params.project_label }}{{ if $isFeatured }} <span class="featured-listing-label">Featured flight report</span>{{ end }}</p>
+      <h3 id="title-{{ $id }}">{{ $title }}</h3>
+      <p>{{ .Params.teaser }}</p>
+      <div class="listing-card-footer">
+        <span>{{ .Params.specs }}</span>
+        <span class="listing-card-cta" id="action-{{ $id }}">View flight report {{ partial "glyph.html" "arrow-up-right" }}</span>
+      </div>
+    </div>
+  </a>
+</article>

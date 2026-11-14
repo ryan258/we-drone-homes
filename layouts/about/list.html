@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-intro">
+    <span class="eyebrow">A fictional real estate drone agency</span>
+    <h1>A good idea.<br>Three unfortunate words.</h1>
+    <p>We had the drones. We photographed homes. Nobody read the name out loud until the van was wrapped.</p>
+  </header>
+  <div class="editorial-grid page-content">
+    {{ with resources.Get "brand/art/ranch-exterior.webp" }}
+    <figure>
+      <img src="{{ .RelPermalink }}" alt="Cedar and limestone ranch house in late afternoon light with a camera drone above the lawn" width="{{ .Width }}" height="{{ .Height }}">
+      <figcaption class="eyebrow">Location scout / fictional property</figcaption>
+    </figure>
+    {{ end }}
+    <article class="prose">
+      <h2>It made sense on the whiteboard.</h2>
+      <p>Our founder had a camera drone, a friend with a real estate license, and the kind of confidence that should require a second signature.</p>
+      <p>“We drone homes,” he said. It was concise. It was descriptive. The domain was available. Nobody in the room worked in public relations.</p>
+      <p>Two hundred business cards, forty-eight embroidered polos, and one very memorable vehicle wrap later, a homeowner asked us to leave. We hadn’t even unloaded the tripod.</p>
+      <div class="large-aside">
+        <p>“In our defense, every individual word is completely normal.”</p>
+        <span class="eyebrow">Founding statement, revision 6</span>
+      </div>
+      <h2>How we see a house.</h2>
+      <p>Warm light, a steady horizon, and enough room in the frame to see where the hallway goes. Then we give the hallway a flight briefing.</p>
+      <p>Explore imagined properties, replay their illustrated routes, and meet the crew behind the paperwork.</p>
+      <a class="text-link" href="{{ "/listings/mcmansion-monolith/" | relURL }}">View the McMansion flight report {{ partial "glyph.html" "flight-path" }}</a>
+    </article>
+  </div>
+</div>
+{{ partial "cta.html" . }}
+{{ end }}

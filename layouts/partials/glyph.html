@@ -1,0 +1,2 @@
+{{- $sprite := resources.Get "brand/identity/glyphs.svg" | fingerprint -}}
+<svg class="brand-glyph" width="24" height="24" aria-hidden="true" focusable="false"><use href="{{ printf "%s#wdh-%s" $sprite.RelPermalink . }}"></use></svg>

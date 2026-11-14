@@ -1,14 +1,39 @@
+{{- $title := .Site.Title -}}
+{{- if not .IsHome -}}{{ $title = printf "%s | We Drone Homes" .Title }}{{- end -}}
+{{- $description := .Description | default .Site.Params.description -}}
+{{- $imageURL := "images/brand-share.jpg" | absURL -}}
+{{- $imageAlt := "We Drone Homes: Killer views. Unfortunate name. A fictional real estate drone agency, beside a warm aerial view of a ranch house." -}}
+{{- $imageWidth := 1200 -}}
+{{- $imageHeight := 630 -}}
+{{- with .Params.og_image -}}
+  {{- with resources.Get . -}}
+    {{- $imageURL = .Permalink -}}
+    {{- $imageWidth = .Width -}}
+    {{- $imageHeight = .Height -}}
+    {{- $imageAlt = $.Params.og_image_alt -}}
+  {{- else -}}
+    {{- errorf "%s: missing Open Graph image %q" $.RelPermalink . -}}
+  {{- end -}}
+{{- end }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} // {{ .Site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.brand.subtagline }}{{ end }}">
-
-<!-- Google Fonts: Syne, Space Grotesk, Share Tech Mono, Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-<!-- Hugo Pipes Sass Compilation -->
-{{ $sassOptions := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" false }}
-{{ $style := resources.Get "sass/main.scss" | toCSS $sassOptions | minify | fingerprint }}
+<meta name="theme-color" content="#192d27">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $imageURL }}">
+<meta property="og:image:width" content="{{ $imageWidth }}">
+<meta property="og:image:height" content="{{ $imageHeight }}">
+<meta property="og:image:alt" content="{{ $imageAlt }}">
+{{ with resources.Get "brand/identity/favicon.svg" }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">{{ end }}
+{{ $styles := slice }}
+{{ range (slice "brand/identity/tokens.css" "css/site.css" "css/brand-identity.css" "css/brand-home.css" "css/brand-listings.css") }}
+  {{ with resources.Get . }}{{ $styles = $styles | append . }}{{ else }}{{ errorf "Missing site stylesheet %q" . }}{{ end }}
+{{ end }}
+{{ $style := $styles | resources.Concat "css/site-bundle.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+
+<noscript><style>@media(max-width:720px){.main-nav{display:flex;position:static;box-shadow:none;border:0;padding:10px 0;width:100%}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}.site-header{position:static}}</style></noscript>
