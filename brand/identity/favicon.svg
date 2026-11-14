@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="asset-title">
+<title id="asset-title">We Drone Homes favicon</title>
+<rect width="64" height="64" rx="12" fill="#192D27"/>
+<g transform="translate(8 8) scale(1)">
+<g stroke="#E8EE79" fill="none">
+  <path d="M14 14l20 20M34 14L14 34" stroke-width="3"/>
+  <g stroke-width="2">
+    <circle cx="11" cy="11" r="8"/><circle cx="37" cy="11" r="8"/>
+    <circle cx="11" cy="37" r="8"/><circle cx="37" cy="37" r="8"/>
+  </g>
+</g>
+<rect x="18" y="18" width="12" height="12" rx="3" fill="#E8EE79"/>
+</g>
+</svg>

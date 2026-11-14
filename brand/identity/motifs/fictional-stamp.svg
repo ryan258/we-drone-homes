@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="264" height="88" viewBox="0 0 264 88" role="img" aria-labelledby="asset-title">
+<title id="asset-title">Fictional agency. We Drone Homes.</title>
+<rect x="3" y="3" width="258" height="82" rx="8" fill="#E8EE79" stroke="#192D27" stroke-width="2"/>
+<rect x="10" y="10" width="244" height="68" rx="5" fill="none" stroke="#192D27" stroke-width="1" stroke-dasharray="2 3"/>
+<g transform="translate(20 26) scale(0.72)">
+<g stroke="#192D27" fill="none">
+  <path d="M14 14l20 20M34 14L14 34" stroke-width="3"/>
+  <g stroke-width="2">
+    <circle cx="11" cy="11" r="8"/><circle cx="37" cy="11" r="8"/>
+    <circle cx="11" cy="37" r="8"/><circle cx="37" cy="37" r="8"/>
+  </g>
+</g>
+<rect x="18" y="18" width="12" height="12" rx="3" fill="#192D27"/>
+</g>
+<path d="M66 23v42" stroke="#192D27" stroke-width="1"/>
+<g fill="#192D27" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+  <text x="80" y="41" font-size="15" letter-spacing=".4">FICTIONAL AGENCY</text>
+  <text x="80" y="60" font-size="11" letter-spacing=".7">WE DRONE HOMES</text>
+</g>
+</svg>

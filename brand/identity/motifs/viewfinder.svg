@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="350" viewBox="0 0 620 350" role="img" aria-labelledby="asset-title asset-description">
+<title id="asset-title">Viewfinder overlay</title>
+<desc id="asset-description">Four corner brackets and a center registration mark.</desc>
+<path d="M22 79V22h57m462 0h57v57m0 192v57h-57m-462 0H22v-57M293 175h34m-17-17v34"
+      stroke="#FFFEF8" fill="none" stroke-width="3" stroke-linecap="round"/>
+<circle cx="50" cy="50" r="5" fill="#E8EE79"/>
+</svg>

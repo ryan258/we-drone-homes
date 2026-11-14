@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="713" viewBox="0 0 960 713" role="img" aria-labelledby="asset-title asset-description">
+<title id="asset-title">Flight operations glyphs</title>
+<desc id="asset-description">The complete twenty-icon set with visible names. See USAGE.md for meanings and labels.</desc>
+<rect width="960" height="713" fill="#F5F3EB"/>
+<rect x="0" y="0" width="960" height="11" fill="#E8EE79"/>
+<text x="40" y="71" fill="#192D27" font-size="36" font-family="Arial, Helvetica, sans-serif" font-weight="700">Flight operations glyphs</text>
+<text x="40" y="100" fill="#59655A" font-size="16" font-family="Arial, Helvetica, sans-serif">24-unit artwork / 20 symbols / paired with text labels</text>
+<rect x="40" y="125" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(102 145) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10m0-10L7 17"/><rect x="9.3" y="9.3" width="5.4" height="5.4" rx="1.3" fill="#192D27" stroke="none"/><circle cx="5.8" cy="5.8" r="3.1"/><circle cx="18.2" cy="5.8" r="3.1"/><circle cx="5.8" cy="18.2" r="3.1"/><circle cx="18.2" cy="18.2" r="3.1"/></g></g>
+<text x="126" y="221" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Drone</text>
+<text x="126" y="241" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">drone</text>
+<rect x="217" y="125" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(279 145) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h4L10 5h4l1.5 2.5h4A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V9a1.5 1.5 0 0 1 1.5-1.5Z"/><circle cx="12" cy="13.5" r="3.2"/></g></g>
+<text x="303" y="221" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Aerial photography</text>
+<text x="303" y="241" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">camera</text>
+<rect x="394" y="125" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(456 145) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5.5 21V3h11v5M16.5 16v5M9 12h12m-3.7-3.7L21 12l-3.7 3.7"/></g></g>
+<text x="480" y="221" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Interior fly-through</text>
+<text x="480" y="241" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">interior</text>
+<rect x="571" y="125" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(633 145) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5h18M6 16.5a6 6 0 0 1 12 0M12 3.5v2m7.3 1.6-1.4 1.4M4.7 7.1l1.4 1.4M7 20h10"/></g></g>
+<text x="657" y="221" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Twilight films</text>
+<text x="657" y="241" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">twilight</text>
+<rect x="748" y="125" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(810 145) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.75" width="11" height="18.5" rx="2"/><path d="m10.25 8 4.6 3-4.6 3zM11 18h2"/></g></g>
+<text x="834" y="221" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Social-ready edits</text>
+<text x="834" y="241" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">social</text>
+<rect x="40" y="265" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(102 285) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 10.5 12 3l9.25 7.5M5 9.5v11h14v-11m-9.5 11v-6h5v6"/></g></g>
+<text x="126" y="361" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Our work</text>
+<text x="126" y="381" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">property</text>
+<rect x="217" y="265" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(279 285) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8.5 4.5v9L12 21l-8.5-4.5v-9L12 3Zm0 9 8.5-4.5M12 12 3.5 7.5M12 12v9m-4.25-15.75 8.5 4.5"/></g></g>
+<text x="303" y="361" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Packages</text>
+<text x="303" y="381" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">packages</text>
+<rect x="394" y="265" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(456 285) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.25"/><path d="M2.75 20v-1.5A4.5 4.5 0 0 1 7.25 14h3.5a4.5 4.5 0 0 1 4.5 4.5V20m.4-15.2a3.25 3.25 0 0 1 0 6.4M18 14.5a4.5 4.5 0 0 1 3.25 4.3V20"/></g></g>
+<text x="480" y="361" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">The crew</text>
+<text x="480" y="381" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">crew</text>
+<rect x="571" y="265" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(633 285) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="7" rx="1.5"/><rect x="4.5" y="13.5" width="15" height="7" rx="1.5"/><path d="M8 7h2m-2 10h2m4.5-10H16m-1.5 10H16"/></g></g>
+<text x="657" y="361" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Fleet</text>
+<text x="657" y="381" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">fleet</text>
+<rect x="748" y="265" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(810 285) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H6.5A1.5 1.5 0 0 0 5 6v14a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1"/><path d="m8.25 12.25 1.25 1.25 2.25-2.25m1.8 1.25H16m-7.75 5H16"/></g></g>
+<text x="834" y="361" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Flight briefing</text>
+<text x="834" y="381" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">briefing</text>
+<rect x="40" y="405" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(102 425) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13.5v-5m0 0L6.5 4M9 8.5 11.5 4m-4.7 16.75h10.4A1.8 1.8 0 0 0 19 19v-4a1.8 1.8 0 0 0-1.8-1.75H6.8A1.8 1.8 0 0 0 5 15v4a1.8 1.8 0 0 0 1.8 1.75ZM9 17h.1m3-.25h3.5M15 5.5a4.7 4.7 0 0 1 3.5 3.5m-3.1-6.1a7.2 7.2 0 0 1 5.7 5.7"/></g></g>
+<text x="126" y="501" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Dispatch</text>
+<text x="126" y="521" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">dispatch</text>
+<rect x="217" y="405" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(279 425) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2.75" width="13" height="18.5" rx="1.7"/><path d="M8.5 7.5h7m-7 4.5h1m5 0h1m-7 3h1m5 0h1m-7 3h1m5 0h1"/></g></g>
+<text x="303" y="501" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Drywall calculator</text>
+<text x="303" y="521" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">calculator</text>
+<rect x="394" y="405" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(456 425) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4m3-7v10m3-13v16m3-11v6m3-9v12m3-14v16m3-10v4"/></g></g>
+<text x="480" y="501" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Soundboard</text>
+<text x="480" y="521" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">soundboard</text>
+<rect x="571" y="405" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(633 425) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 21V3h9L19 7.5V21H5.5Zm9-18v4.5H19M8 11.5h7.5M8 15.5c1.9-2.5 3-1.3 3 0s.9 1.5 1.8.5 1.2-.5 2.8.2"/></g></g>
+<text x="657" y="501" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Unofficial waiver</text>
+<text x="657" y="521" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">waiver</text>
+<rect x="748" y="405" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(810 425) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2.25"/><circle cx="18.5" cy="5.5" r="2.25"/><path d="M5.5 16.25V9a3.5 3.5 0 0 1 7 0v3.5a3 3 0 0 0 6 0V7.75"/></g></g>
+<text x="834" y="501" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Flight path</text>
+<text x="834" y="521" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">flight-path</text>
+<rect x="40" y="545" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(102 565) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></g></g>
+<text x="126" y="641" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Play</text>
+<text x="126" y="661" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">play</text>
+<rect x="217" y="545" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(279 565) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5v14m7-14v14" stroke-width="2.4"/></g></g>
+<text x="303" y="641" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Pause</text>
+<text x="303" y="661" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">pause</text>
+<rect x="394" y="545" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(456 565) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6v5.25h5.25M4 10.8a8 8 0 1 1 1.7 7.1"/></g></g>
+<text x="480" y="641" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Reset</text>
+<text x="480" y="661" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">reset</text>
+<rect x="571" y="545" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(633 565) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6m-8 0h8v8"/></g></g>
+<text x="657" y="641" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Arrow up right</text>
+<text x="657" y="661" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">arrow-up-right</text>
+<rect x="748" y="545" width="172" height="135" fill="#FFFEF8" stroke="#D3D7C9"/>
+<g transform="translate(810 565) scale(2)"><g fill="none" stroke="#192D27" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M12 11.2v5"/><circle cx="12" cy="7.7" r=".85" fill="#192D27" stroke="none"/></g></g>
+<text x="834" y="641" text-anchor="middle" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#192D27">Information</text>
+<text x="834" y="661" text-anchor="middle" font-size="11" font-family="Courier New, monospace" fill="#59655A">info</text>
+</svg>

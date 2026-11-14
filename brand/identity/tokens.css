@@ -1,0 +1,56 @@
+/* We Drone Homes brand reference. Namespaced for use in collateral. */
+:root {
+  --wdh-paper: #F5F3EB;
+  --wdh-white: #FFFEF8;
+  --wdh-ink: #192D27;
+  --wdh-muted: #59655A;
+  --wdh-line: #D3D7C9;
+  --wdh-yellow: #E8EE79;
+  --wdh-tint: #E9ECDF;
+  --wdh-focus: #986400;
+  --wdh-hover-dark: #345044;
+  --wdh-hover-yellow: #F5FFA0;
+
+  --wdh-surface: var(--wdh-paper);
+  --wdh-surface-card: var(--wdh-white);
+  --wdh-surface-alternate: var(--wdh-tint);
+  --wdh-surface-inverse: var(--wdh-ink);
+  --wdh-text: var(--wdh-ink);
+  --wdh-text-secondary: var(--wdh-muted);
+  --wdh-text-inverse: var(--wdh-paper);
+  --wdh-border-decorative: var(--wdh-line);
+  --wdh-border-functional: var(--wdh-muted);
+  --wdh-accent: var(--wdh-yellow);
+  --wdh-on-accent: var(--wdh-ink);
+  --wdh-focus-on-light: var(--wdh-focus);
+  --wdh-focus-on-dark: var(--wdh-yellow);
+  --wdh-button-primary: var(--wdh-ink);
+  --wdh-button-primary-text: var(--wdh-white);
+  --wdh-button-primary-hover: var(--wdh-hover-dark);
+  --wdh-button-inverse: var(--wdh-yellow);
+  --wdh-button-inverse-text: var(--wdh-ink);
+  --wdh-button-inverse-hover: var(--wdh-hover-yellow);
+
+  --wdh-font-sans: Arial, Helvetica, sans-serif;
+  --wdh-font-mono: "Courier New", monospace;
+  --wdh-body-size: 1rem;
+  --wdh-body-line-height: 1.6;
+  --wdh-display-weight: 700;
+  --wdh-display-line-height: 1.05;
+  --wdh-display-tracking: -.045em;
+  --wdh-telemetry-min-size: 0.75rem;
+  --wdh-telemetry-weight: 700;
+  --wdh-telemetry-line-height: 1.6;
+  --wdh-telemetry-tracking: .085em;
+
+  --wdh-space-xs: 0.25rem;
+  --wdh-space-sm: 0.5rem;
+  --wdh-space-md: 1rem;
+  --wdh-space-lg: 1.5rem;
+  --wdh-space-xl: 2rem;
+  --wdh-space-2xl: 3rem;
+  --wdh-space-3xl: 4rem;
+  --wdh-icon-min-size: 16px;
+  --wdh-icon-default-size: 24px;
+  --wdh-control-target: 44px;
+}

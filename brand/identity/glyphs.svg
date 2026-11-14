@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="wdh-drone" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10m0-10L7 17"/><rect x="9.3" y="9.3" width="5.4" height="5.4" rx="1.3" fill="currentColor" stroke="none"/><circle cx="5.8" cy="5.8" r="3.1"/><circle cx="18.2" cy="5.8" r="3.1"/><circle cx="5.8" cy="18.2" r="3.1"/><circle cx="18.2" cy="18.2" r="3.1"/></g>
+</symbol>
+<symbol id="wdh-camera" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h4L10 5h4l1.5 2.5h4A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V9a1.5 1.5 0 0 1 1.5-1.5Z"/><circle cx="12" cy="13.5" r="3.2"/></g>
+</symbol>
+<symbol id="wdh-interior" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5.5 21V3h11v5M16.5 16v5M9 12h12m-3.7-3.7L21 12l-3.7 3.7"/></g>
+</symbol>
+<symbol id="wdh-twilight" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5h18M6 16.5a6 6 0 0 1 12 0M12 3.5v2m7.3 1.6-1.4 1.4M4.7 7.1l1.4 1.4M7 20h10"/></g>
+</symbol>
+<symbol id="wdh-social" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.75" width="11" height="18.5" rx="2"/><path d="m10.25 8 4.6 3-4.6 3zM11 18h2"/></g>
+</symbol>
+<symbol id="wdh-property" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 10.5 12 3l9.25 7.5M5 9.5v11h14v-11m-9.5 11v-6h5v6"/></g>
+</symbol>
+<symbol id="wdh-packages" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8.5 4.5v9L12 21l-8.5-4.5v-9L12 3Zm0 9 8.5-4.5M12 12 3.5 7.5M12 12v9m-4.25-15.75 8.5 4.5"/></g>
+</symbol>
+<symbol id="wdh-crew" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.25"/><path d="M2.75 20v-1.5A4.5 4.5 0 0 1 7.25 14h3.5a4.5 4.5 0 0 1 4.5 4.5V20m.4-15.2a3.25 3.25 0 0 1 0 6.4M18 14.5a4.5 4.5 0 0 1 3.25 4.3V20"/></g>
+</symbol>
+<symbol id="wdh-fleet" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="7" rx="1.5"/><rect x="4.5" y="13.5" width="15" height="7" rx="1.5"/><path d="M8 7h2m-2 10h2m4.5-10H16m-1.5 10H16"/></g>
+</symbol>
+<symbol id="wdh-briefing" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H6.5A1.5 1.5 0 0 0 5 6v14a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V6a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="2.5" width="6" height="4" rx="1"/><path d="m8.25 12.25 1.25 1.25 2.25-2.25m1.8 1.25H16m-7.75 5H16"/></g>
+</symbol>
+<symbol id="wdh-dispatch" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13.5v-5m0 0L6.5 4M9 8.5 11.5 4m-4.7 16.75h10.4A1.8 1.8 0 0 0 19 19v-4a1.8 1.8 0 0 0-1.8-1.75H6.8A1.8 1.8 0 0 0 5 15v4a1.8 1.8 0 0 0 1.8 1.75ZM9 17h.1m3-.25h3.5M15 5.5a4.7 4.7 0 0 1 3.5 3.5m-3.1-6.1a7.2 7.2 0 0 1 5.7 5.7"/></g>
+</symbol>
+<symbol id="wdh-calculator" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2.75" width="13" height="18.5" rx="1.7"/><path d="M8.5 7.5h7m-7 4.5h1m5 0h1m-7 3h1m5 0h1m-7 3h1m5 0h1"/></g>
+</symbol>
+<symbol id="wdh-soundboard" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4m3-7v10m3-13v16m3-11v6m3-9v12m3-14v16m3-10v4"/></g>
+</symbol>
+<symbol id="wdh-waiver" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 21V3h9L19 7.5V21H5.5Zm9-18v4.5H19M8 11.5h7.5M8 15.5c1.9-2.5 3-1.3 3 0s.9 1.5 1.8.5 1.2-.5 2.8.2"/></g>
+</symbol>
+<symbol id="wdh-flight-path" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2.25"/><circle cx="18.5" cy="5.5" r="2.25"/><path d="M5.5 16.25V9a3.5 3.5 0 0 1 7 0v3.5a3 3 0 0 0 6 0V7.75"/></g>
+</symbol>
+<symbol id="wdh-play" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></g>
+</symbol>
+<symbol id="wdh-pause" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5v14m7-14v14" stroke-width="2.4"/></g>
+</symbol>
+<symbol id="wdh-reset" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6v5.25h5.25M4 10.8a8 8 0 1 1 1.7 7.1"/></g>
+</symbol>
+<symbol id="wdh-arrow-up-right" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6m-8 0h8v8"/></g>
+</symbol>
+<symbol id="wdh-info" viewBox="0 0 24 24">
+<g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M12 11.2v5"/><circle cx="12" cy="7.7" r=".85" fill="currentColor" stroke="none"/></g>
+</symbol>
+</svg>
